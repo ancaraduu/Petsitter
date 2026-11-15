@@ -1,7 +1,7 @@
 # PetSitter Fiki
 
-A one-page Startup Engineering project Fiki for **Stoica Ana-Florina**
-(Product & Backend) and **Anca Radu** (Design & Frontend).
+A one-page Startup Engineering project Fiki for **Ana-Florina Stoica**
+and **Anca Radu**, both full-stack developers.
 
 The Fiki documents the project. The customer-facing landing page and the
 application wireframe are separate static pages linked from the M3 section.
