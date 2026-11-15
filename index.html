@@ -10,7 +10,7 @@
     <meta property="og:type" content="website">
     <title>PetSitter | Project Fiki</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=m4-tabs">
+    <link rel="stylesheet" href="styles.css?v=milestone-ribbons">
     <script src="script.js?v=m4-tabs" defer></script>
   </head>
   <body>
@@ -80,41 +80,13 @@
 
       <div class="fiki-note wrap"><p><strong>About this page.</strong> All milestone documentation is kept on this Fiki. The customer-facing landing page is a separate M3 deliverable.</p></div>
 
-      <section class="journey wrap" id="milestones" aria-labelledby="journey-title">
-        <div class="section-heading compact">
-          <div><p class="eyebrow">Project progress</p><h2 id="journey-title">Milestones</h2></div>
-          <span class="quiet-label">Select a milestone to open its content.</span>
-        </div>
-        <div class="milestone-grid">
-          <a class="milestone-card pink" href="#m1">
-            <div class="card-top"><span class="milestone-number">01</span><span class="badge">Project overview</span></div>
-            <h3>Project description</h3><p>Team, problem definition, proposed solution, and business model.</p>
-            <div class="card-bottom"><span>Due <time datetime="2026-10-19">19 Oct 2026</time></span><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></div>
-          </a>
-          <a class="milestone-card lilac" href="#m2">
-            <div class="card-top"><span class="milestone-number">02</span><span class="badge">Customer discovery</span></div>
-            <h3>Customer discovery</h3><p>Research methods, survey findings, evidence, and product decisions.</p>
-            <div class="card-bottom"><span>Due <time datetime="2026-11-02">02 Nov 2026</time></span><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></div>
-          </a>
-          <a class="milestone-card butter" href="#m3">
-            <div class="card-top"><span class="milestone-number">03</span><span class="badge">Published</span></div>
-            <h3>Wireframes &amp; landing page</h3><p>Application structure, user flows, and the customer-facing page.</p>
-            <div class="card-bottom"><span>Due <time datetime="2026-11-09">09 Nov 2026</time></span><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></div>
-          </a>
-          <a class="milestone-card mint" href="#m4">
-            <div class="card-top"><span class="milestone-number">04</span><span class="badge">Research &amp; UX</span></div>
-            <h3>Users &amp; experience</h3><p>Recorded interviews, user types, a primary persona, user stories, and owner and sitter flows.</p>
-            <div class="card-bottom"><span>Due <time datetime="2026-11-16">16 Nov 2026</time></span><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></div>
-          </a>
-        </div>
-      </section>
-
+      <div class="milestone-list" id="milestones">
       <section class="milestone-section wrap" id="m1" data-section aria-labelledby="m1-title">
         <details class="milestone-disclosure">
-          <summary class="milestone-ribbon" aria-labelledby="m1-title">
+          <summary class="milestone-ribbon" aria-labelledby="m1-title" aria-describedby="m1-subtitle">
             <h2 class="milestone-heading">
               <span class="chapter-number pink">01</span>
-              <span class="milestone-label"><span class="eyebrow">M1 / Fiki &amp; project description</span><span id="m1-title">Project overview</span></span>
+              <span class="milestone-label"><span class="eyebrow">M1 / Fiki &amp; project description</span><span id="m1-title">Project overview</span><span class="milestone-subtitle" id="m1-subtitle">Team, problem definition, proposed solution, and business model.</span></span>
               <span class="deadline">Milestone deadline<time datetime="2026-10-19">19 October 2026</time></span>
               <span class="milestone-toggle" aria-hidden="true"></span>
             </h2>
@@ -193,10 +165,10 @@
 
       <section class="milestone-section wrap" id="m2" data-section aria-labelledby="m2-title">
         <details class="milestone-disclosure">
-          <summary class="milestone-ribbon" aria-labelledby="m2-title">
+          <summary class="milestone-ribbon" aria-labelledby="m2-title" aria-describedby="m2-subtitle">
             <h2 class="milestone-heading">
               <span class="chapter-number lilac">02</span>
-              <span class="milestone-label"><span class="eyebrow">M2 / Validation 1: the idea</span><span id="m2-title">Customer discovery</span></span>
+              <span class="milestone-label"><span class="eyebrow">M2 / Validation 1: the idea</span><span id="m2-title">Customer discovery</span><span class="milestone-subtitle" id="m2-subtitle">Research methods, survey findings, evidence, and product decisions.</span></span>
               <span class="deadline">Milestone deadline<time datetime="2026-11-02">02 November 2026</time></span>
               <span class="milestone-toggle" aria-hidden="true"></span>
             </h2>
@@ -358,10 +330,10 @@
 
       <section class="milestone-section wrap" id="m3" data-section aria-labelledby="m3-title">
         <details class="milestone-disclosure">
-          <summary class="milestone-ribbon" aria-labelledby="m3-title">
+          <summary class="milestone-ribbon" aria-labelledby="m3-title" aria-describedby="m3-subtitle">
             <h2 class="milestone-heading">
               <span class="chapter-number butter">03</span>
-              <span class="milestone-label"><span class="eyebrow">M3 / Wireframe &amp; landing page</span><span id="m3-title">Product design</span></span>
+              <span class="milestone-label"><span class="eyebrow">M3 / Wireframe &amp; landing page</span><span id="m3-title">Product design</span><span class="milestone-subtitle" id="m3-subtitle">Application structure, user flows, and the customer-facing page.</span></span>
               <span class="deadline">Milestone deadline<time datetime="2026-11-09">09 November 2026</time></span>
               <span class="milestone-toggle" aria-hidden="true"></span>
             </h2>
@@ -383,10 +355,10 @@
 
       <section class="milestone-section wrap" id="m4" data-section aria-labelledby="m4-title">
         <details class="milestone-disclosure">
-          <summary class="milestone-ribbon" aria-labelledby="m4-title">
+          <summary class="milestone-ribbon" aria-labelledby="m4-title" aria-describedby="m4-subtitle">
             <h2 class="milestone-heading">
               <span class="chapter-number mint">04</span>
-              <span class="milestone-label"><span class="eyebrow">M4 / User research &amp; UX</span><span id="m4-title">Users &amp; experience</span></span>
+              <span class="milestone-label"><span class="eyebrow">M4 / User research &amp; UX</span><span id="m4-title">Users &amp; experience</span><span class="milestone-subtitle" id="m4-subtitle">Recorded interviews, user types, a primary persona, user stories, and owner and sitter flows.</span></span>
               <span class="deadline">Milestone deadline<time datetime="2026-11-16">16 November 2026</time></span>
               <span class="milestone-toggle" aria-hidden="true"></span>
             </h2>
@@ -679,6 +651,7 @@
           </div>
         </details>
       </section>
+      </div>
     </main>
 
     <footer class="site-footer wrap"><a class="brand footer-brand" href="#overview"><svg class="icon" aria-hidden="true"><use href="#icon-paw"/></svg><span>PetSitter</span></a><p>Stoica Ana-Florina &amp; Anca Radu<br><span>PetSitter Fiki / 2026</span></p><a class="text-link" href="#overview">Back to top <span aria-hidden="true">&#8593;</span></a></footer>

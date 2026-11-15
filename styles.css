@@ -93,31 +93,18 @@ strong { font-weight: 700; }
 .fiki-note { padding: 16px 21px; border-left: 3px solid #b9a2b3; background: #f1edef; color: var(--muted); font-size: .77rem; }
 .fiki-note strong { color: var(--ink); }
 
-.journey { padding-top: 48px; padding-bottom: 48px; }
-.section-heading, .block-heading { display: flex; align-items: end; justify-content: space-between; gap: 25px; margin-bottom: 28px; }
-.compact h2 { font-size: 2rem; }
-.milestone-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.block-heading { display: flex; align-items: end; justify-content: space-between; gap: 25px; margin-bottom: 28px; }
 .three-column { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.milestone-card { display: block; padding: 23px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); text-decoration: none; transition: border-color .2s, background .2s; }
-.milestone-card.pink { border-top: 3px solid #b78a9e; }
-.milestone-card.lilac { border-top: 3px solid #a397b3; }
-.milestone-card.butter { border-top: 3px solid #b8ac99; }
-.milestone-card.mint { border-top: 3px solid #8da597; }
-.milestone-card:hover { background: #f6f1f4; border-color: #b297aa; }
-.card-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 25px; }
-.milestone-number { font-family: var(--sans); color: var(--rose); font-size: 1.15rem; font-weight: 600; line-height: 1; }
 .badge { border: 1px solid #94758425; border-radius: 999px; padding: 4px 8px; color: #675160; font-size: .58rem; line-height: 1.5; background: #fffdfa60; }
-.milestone-card h3 { margin-bottom: 10px; font-size: 1.3rem; }
-.milestone-card p { color: var(--muted); font-size: .8rem; line-height: 1.7; }
-.card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 24px; padding-top: 13px; border-top: 1px solid #94758425; color: #675160; font-size: .65rem; }
-.card-bottom .icon { width: 18px; height: 18px; }
 
+.milestone-list { padding-top: 40px; }
 .milestone-section { padding-block: 9px; }
 .milestone-ribbon { display: block; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); transition: background .2s, border-color .2s; }
 .milestone-ribbon:hover { background: #f6f1f4; border-color: #b297aa; }
 .milestone-heading { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 24px; width: 100%; padding: 23px; font-size: clamp(1.45rem, 2.6vw, 2.1rem); }
 .milestone-label { min-width: 0; }
 .milestone-label > span { display: block; }
+.milestone-subtitle { margin-top: 10px; color: var(--muted); font-family: var(--sans); font-size: .8rem; font-weight: 400; line-height: 1.65; letter-spacing: normal; text-wrap: pretty; }
 .milestone-heading .eyebrow, .milestone-heading .deadline { font-family: var(--sans); font-weight: 400; letter-spacing: normal; }
 .milestone-heading .eyebrow { font-weight: 600; letter-spacing: .1em; }
 .milestone-toggle { position: relative; width: 30px; height: 30px; border: 1px solid #d5c4d0; border-radius: 50%; }
@@ -408,11 +395,6 @@ figcaption p { color: var(--muted); font-size: .78rem; line-height: 1.8; }
   .project-summary { padding: 24px; }
   .project-summary h2 { font-size: 1.4rem; }
   .project-summary dl > div { grid-template-columns: 1fr; gap: 3px; }
-  .milestone-grid { gap: 12px; }
-  .milestone-card { padding: 18px; }
-  .card-top { align-items: start; flex-direction: column; gap: 12px; margin-bottom: 17px; }
-  .milestone-card h3 { font-size: 1.26rem; }
-  .card-bottom { font-size: .6rem; }
   .milestone-heading { gap: 16px; }
   .user-type-card { align-items: start; flex-direction: column; }
   .deadline { max-width: 115px; }
@@ -464,14 +446,8 @@ figcaption p { color: var(--muted); font-size: .78rem; line-height: 1.8; }
   .hero-facts strong { font-size: 1.3rem; }
   .project-summary dl > div { grid-template-columns: 88px minmax(0, 1fr); gap: 14px; }
   .fiki-note { padding: 15px 18px; font-size: .73rem; }
-  .journey { padding-top: 43px; padding-bottom: 30px; }
-  .compact h2 { font-size: 1.9rem; }
-  .milestone-grid, .two-column, .team-grid, .three-column, .evidence-grid, .finding-highlights, .results-grid { grid-template-columns: 1fr; }
-  .milestone-grid { gap: 14px; }
-  .milestone-card { padding: 21px; }
-  .card-top { flex-direction: row; align-items: center; margin-bottom: 17px; }
-  .milestone-card h3 { font-size: 1.5rem; }
-  .card-bottom { margin-top: 17px; font-size: .7rem; }
+  .milestone-list { padding-top: 28px; }
+  .two-column, .team-grid, .three-column, .evidence-grid, .finding-highlights, .results-grid { grid-template-columns: 1fr; }
   .milestone-heading { grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; padding: 18px 15px; font-size: 1.3rem; }
   .chapter-number { width: 46px; height: 46px; font-size: 1.2rem; border-radius: 7px; }
   .milestone-heading .eyebrow { font-size: .59rem; letter-spacing: .1em; }
@@ -587,7 +563,7 @@ figcaption p { color: var(--muted); font-size: .78rem; line-height: 1.8; }
   .hero-facts { margin-top: 15px; }
   .project-summary { margin-top: 20px; break-inside: avoid; }
   .fiki-note { margin-bottom: 25px; }
-  .journey { padding: 20px 0; }
+  .milestone-list { padding-top: 0; }
   .milestone-section { break-before: page; }
   .milestone-heading { margin-top: 10px; break-inside: avoid; }
   .milestone-ribbon { border: 0; background: none !important; }

@@ -80,9 +80,10 @@ crop adapts to the screen size.
 To add a milestone, follow an existing `.milestone-section`: use a unique ID
 and `data-section`, a closed `.milestone-disclosure` with a `.milestone-ribbon`
 summary, and a `.milestone-content` wrapper for the actual work and evidence.
-Connect it to the header navigation and milestone overview. Keep milestone
-documentation on this Fiki, while linking customer-facing product pages
-separately when appropriate.
+Place it inside `#milestones`, add a concise `.milestone-subtitle` to its
+ribbon, and connect it to the header navigation. Keep milestone documentation
+on this Fiki, while linking customer-facing product pages separately when
+appropriate.
 
 ## Research numbers
 
