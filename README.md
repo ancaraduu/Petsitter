@@ -1,10 +1,11 @@
 # PetSitter Fiki
 
-A one-page software engineering project Fiki for **Stoica Ana-Florina**
+A one-page Startup Engineering project Fiki for **Stoica Ana-Florina**
 (Product & Backend) and **Anca Radu** (Design & Frontend).
 
-The Fiki documents the project; it is **not** the customer-facing landing page.
-It is a static HTML/CSS/JavaScript website with no build step or runtime dependencies.
+The Fiki documents the project. The customer-facing landing page and the
+application wireframe are separate static pages linked from the M3 section.
+The project has no build step or runtime dependencies.
 
 ## Content
 
@@ -12,8 +13,8 @@ It is a static HTML/CSS/JavaScript website with no build step or runtime depende
   competition hypotheses, planned metrics, costs, and revenue.
 - **M2 - 2 November 2026:** customer discovery, research questions, supplied
   evidence, findings, product changes, and the next validation experiment.
-- **M3 - 9 November 2026:** a clearly labeled section awaiting the existing
-  wireframes and separate landing-page URL.
+- **M3 - 9 November 2026:** application wireframes, owner and sitter flows,
+  and a customer-facing landing page with an early-access call to action.
 
 The dates above are assignment deadlines, not claims about submission dates.
 Research screenshots remain in Romanian, with English captions and summaries.
@@ -40,8 +41,10 @@ deployed.
 
 ## Updating the journal
 
-- `index.html`: all milestone content, captions, and navigation.
-- `styles.css`: responsive layout, colors, typography, and print styles.
+- `index.html`: all milestone content, captions, navigation, and M3 links.
+- `landing.html` / `landing.css`: customer-facing landing page and responsive styles.
+- `my_wireframes.html`: clickable, low-fidelity application flow supplied for M3.
+- `styles.css`: Fiki responsive layout, colors, typography, and print styles.
 - `script.js`: reading progress, active navigation, and the evidence viewer.
 - `assets/`: team photos, the favicon, and research evidence.
 
@@ -54,10 +57,8 @@ crop adapts to the screen size.
 
 To add a milestone, add a section with a unique ID and `data-section`, connect
 it to the header navigation and milestone overview, and include its actual
-work and evidence. Keep all milestone documentation on this same page.
-
-For M3, replace the awaiting-materials notices with the actual wireframes and
-landing-page link. Do not mark the deliverables as published until attached.
+work and evidence. Keep milestone documentation on this Fiki, while linking
+customer-facing product pages separately when appropriate.
 
 ## Research numbers
 

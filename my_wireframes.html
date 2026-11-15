@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PetSitter – Wireframes</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#e9e9e9;color:#222;font:14px/1.4 system-ui,Arial,sans-serif}
+h1{font-size:20px;margin:0 0 4px} .sub{color:#666;margin:0 0 16px;font-size:13px}
+.app{display:flex;gap:24px;max-width:1100px;margin:0 auto;padding:20px;flex-wrap:wrap;justify-content:center;align-items:flex-start}
+aside{width:230px}
+aside h3{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#666;margin:14px 0 6px}
+aside button{display:block;width:100%;text-align:left;background:#fff;border:1px solid #bbb;border-radius:6px;padding:6px 10px;margin-bottom:4px;cursor:pointer;font:inherit}
+aside button.on{background:#222;color:#fff;border-color:#222}
+.phone{width:340px;height:660px;border:3px solid #222;border-radius:30px;background:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.scr{flex:1;overflow-y:auto;padding:14px;display:none;flex-direction:column;gap:10px}
+.scr.on{display:flex}
+.top{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px}
+.top .back{cursor:pointer;border:1px solid #999;border-radius:6px;padding:0 8px;font-weight:400}
+.box{border:1.5px dashed #888;border-radius:8px;padding:8px 10px;background:#fafafa}
+.img{background:linear-gradient(to top right,transparent 48%,#aaa 49%,#aaa 51%,transparent 52%),linear-gradient(to bottom right,transparent 48%,#aaa 49%,#aaa 51%,transparent 52%);border:1.5px solid #aaa;border-radius:8px;height:70px;display:flex;align-items:flex-end;justify-content:center;font-size:11px;color:#666}
+.img.sm{width:56px;height:56px;flex:none;border-radius:50%}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.chip{border:1.5px solid #888;border-radius:99px;padding:3px 10px;font-size:12px;background:#fff}
+.chip.sel{background:#222;color:#fff}
+.btn{border:2px solid #222;border-radius:8px;padding:9px;text-align:center;font-weight:600;background:#fff}
+.btn.pri{background:#222;color:#fff}
+[data-go]{cursor:pointer}
+[data-go]:hover{outline:2px solid #e8590c;outline-offset:1px}
+.card{border:1.5px solid #888;border-radius:10px;padding:10px;display:flex;gap:10px;align-items:center}
+.muted{color:#777;font-size:12px}
+.bad{background:#222;color:#fff;border-radius:4px;padding:0 5px;font-size:11px}
+.bub{max-width:80%;padding:7px 10px;border-radius:12px;border:1.5px solid #888;font-size:13px}
+.bub.me{align-self:flex-end;background:#eee}
+.tabs{display:none;border-top:2px solid #222;justify-content:space-around;padding:8px 0;font-size:12px;background:#fff}
+.tabs.on{display:flex}
+.tabs span{cursor:pointer;text-align:center}
+.field{border:1.5px solid #888;border-radius:6px;padding:7px 9px;color:#666;background:#fff}
+.notes{width:260px;background:#fff;border:1.5px solid #888;border-radius:10px;padding:14px}
+.notes h3{margin:0 0 8px;font-size:15px} .notes li{margin-bottom:6px;font-size:13px}
+.notes ul{padding-left:18px;margin:0}
+.tag{display:inline-block;font-size:11px;border:1px solid #e8590c;color:#e8590c;border-radius:4px;padding:0 5px;margin-bottom:8px}
+.hint{font-size:12px;color:#666;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="app">
+<aside>
+  <h1>🐾 PetSitter</h1>
+  <p class="sub">Low-fidelity wireframes. Click any boxed element with an orange outline on hover to follow the flow.</p>
+  <div id="menu"></div>
+</aside>
+
+<div class="phone" id="phone">
+
+<!-- OWNER FLOW -->
+<section class="scr" id="o-home" data-title="O1 · Home (owner)" data-tabs="owner" data-flow="Owner"
+ data-notes="Search bar / care-type chip → Request details (O2)|⚡ Urgent button → Search results with ‘available today’ filter (O3)|Upcoming booking card → My bookings (O8)|Bottom tabs: Home, Bookings, Chat, Pets">
+  <div class="top">PetSitter <span class="muted" style="margin-left:auto">📍 Location ▾</span></div>
+  <div class="field" data-go="o-request">🔍 Where and when do you need care?</div>
+  <div class="btn pri" data-go="o-results">⚡ Urgent: find a sitter today</div>
+  <b>Services</b>
+  <div class="row"><span class="chip" data-go="o-request">🦮 Walking</span><span class="chip" data-go="o-request">🏠 Home care</span><span class="chip" data-go="o-request">🛏 Boarding</span><span class="chip" data-go="o-request">👀 Drop-in visit</span></div>
+  <b>Upcoming</b>
+  <div class="card" data-go="o-bookings"><div class="img sm"></div><div>Walk with Hector<div class="muted">Tomorrow, 18:00 · Confirmed</div></div></div>
+  <div class="box muted">Banner: “Add your pet’s profile so sitters know allergies and routines.” <u data-go="o-pet">Add pet</u></div>
+</section>
+
+<section class="scr" id="o-request" data-title="O2 · Request details" data-tabs="" data-flow="Owner"
+ data-notes="Back → Home|Choosing a pet loads its saved profile (O9)|‘Add / edit pet’ → Pet profile (O9)|Find sitters → Search results (O3) filtered by location, dates and service">
+  <div class="top"><span class="back" data-go="o-home">←</span>New request</div>
+  <b>Care type</b>
+  <div class="row"><span class="chip sel">Boarding</span><span class="chip">Walking</span><span class="chip">Home care</span><span class="chip">Drop-in</span></div>
+  <b>Pet</b>
+  <div class="card" data-go="o-pet"><div class="img sm"></div><div>Hector · Dog<div class="muted">Edit pet profile ›</div></div></div>
+  <b>Dates and time</b>
+  <div class="row"><div class="field" style="flex:1">From ▾</div><div class="field" style="flex:1">To ▾</div></div>
+  <b>Location</b><div class="field">📍 Address / area</div>
+  <b>Notes for sitters</b><div class="field" style="height:60px">Optional…</div>
+  <div class="btn pri" data-go="o-results">Find sitters</div>
+</section>
+
+<section class="scr" id="o-results" data-title="O3 · Sitter search results" data-tabs="" data-flow="Owner"
+ data-notes="Filter chips refresh the list (available now, verified, price, rating)|List / map toggle switches view|Tap a sitter card → Sitter profile (O4)|Back → Request details (O2)">
+  <div class="top"><span class="back" data-go="o-request">←</span>Sitters near you</div>
+  <div class="row"><span class="chip sel">Available now</span><span class="chip">✔ Verified</span><span class="chip">≤ 100 RON</span><span class="chip">★ 4+</span></div>
+  <div class="row"><span class="chip sel">List</span><span class="chip">Map</span></div>
+  <div class="card" data-go="o-sitter"><div class="img sm"></div><div><b>Sitter A</b> <span class="bad">✔ Verified</span><div class="muted">★ 4.9 (23) · 0.8 km</div><div>90 RON / day</div></div></div>
+  <div class="card" data-go="o-sitter"><div class="img sm"></div><div><b>Sitter B</b> <span class="bad">✔ Verified</span><div class="muted">★ 4.7 (11) · 1.5 km</div><div>110 RON / day</div></div></div>
+  <div class="card" data-go="o-sitter"><div class="img sm"></div><div><b>Sitter C</b> <span class="bad">✔ Verified</span><div class="muted">★ 4.6 (6) · 2.3 km</div><div>75 RON / day</div></div></div>
+</section>
+
+<section class="scr" id="o-sitter" data-title="O4 · Sitter profile" data-tabs="" data-flow="Owner"
+ data-notes="‘Free meet & greet’ → Chat with video-call scheduling (O5)|‘Book now’ → Booking summary and payment (O6)|Reviews list is scrollable; only owners with a completed booking can review|Back → Results (O3)">
+  <div class="top"><span class="back" data-go="o-results">←</span>Sitter A</div>
+  <div class="img" style="height:90px">photo</div>
+  <div class="row"><span class="bad">✔ ID verified</span><span>★ 4.9 (23 reviews)</span></div>
+  <div class="box">About: short bio, experience with dogs and cats.</div>
+  <b>Services and prices</b>
+  <div class="box">Walking 30 RON · Drop-in 40 RON · Home care 90 RON · Boarding 110 RON</div>
+  <b>Availability</b><div class="box muted">▢▢▣▣▣▢▢ · mini calendar</div>
+  <b>Reviews</b><div class="box muted">★★★★★ “Great with my dog” …</div>
+  <div class="btn" data-go="o-meet">🎥 Free 15-min meet &amp; greet</div>
+  <div class="btn pri" data-go="o-book">Book now</div>
+</section>
+
+<section class="scr" id="o-meet" data-title="O5 · Chat and meet & greet" data-tabs="owner" data-flow="Owner"
+ data-notes="In-app chat (and call) between owner and sitter|‘Schedule video call’ proposes a 15-min slot; both get a notification|‘Looks good, book’ → Booking summary (O6)|Same screen is used by the sitter">
+  <div class="top"><span class="back" data-go="o-sitter">←</span>Chat · Sitter A <span style="margin-left:auto">📞</span></div>
+  <div class="bub">Hi! I’m free this weekend 🙂</div>
+  <div class="bub me">Great, can we do a quick intro call?</div>
+  <div class="box" style="text-align:center">🎥 Meet &amp; greet · Sat 17:00 · 15 min</div>
+  <div style="flex:1"></div>
+  <div class="field">Type a message…</div>
+  <div class="btn" >Schedule video call</div>
+  <div class="btn pri" data-go="o-book">Looks good, book</div>
+</section>
+
+<section class="scr" id="o-book" data-title="O6 · Booking summary and payment" data-tabs="" data-flow="Owner"
+ data-notes="Shows service, pet, dates and price breakdown (care + service fee)|Payment method picker (card)|‘Pay and confirm’ → Confirmation (O7); funds are held until the service is completed|Back → Sitter profile (O4)">
+  <div class="top"><span class="back" data-go="o-sitter">←</span>Confirm booking</div>
+  <div class="box">Sitter A · Boarding<br>Hector (dog)<br>12 – 15 Dec · 3 days</div>
+  <div class="box">3 × 90 RON = 270 RON<br>Service fee = 27 RON<br><b>Total = 297 RON</b></div>
+  <b>Payment</b><div class="field">💳 •••• 4242 ▾</div>
+  <div class="muted">🔒 Money is held securely and released to the sitter after the service.</div>
+  <div style="flex:1"></div>
+  <div class="btn pri" data-go="o-confirm">Pay and confirm</div>
+</section>
+
+<section class="scr" id="o-confirm" data-title="O7 · Booking confirmation" data-tabs="" data-flow="Owner"
+ data-notes="Push notification and email sent to owner and sitter|‘View booking’ → My bookings (O8)|‘Chat with sitter’ → Chat (O5)">
+  <div style="flex:1"></div>
+  <div style="text-align:center;font-size:44px">✔</div>
+  <div style="text-align:center"><b>Request sent!</b><div class="muted">Sitter A has been notified and will confirm shortly.</div></div>
+  <div style="flex:1"></div>
+  <div class="btn pri" data-go="o-bookings">View booking</div>
+  <div class="btn" data-go="o-meet">Chat with sitter</div>
+</section>
+
+<section class="scr" id="o-bookings" data-title="O8 · My bookings" data-tabs="owner" data-flow="Owner"
+ data-notes="Tabs switch between Upcoming and Past|Tap a booking → Sitter profile (O4)|After a completed service, ‘Leave a review’ rates the sitter and releases the payment">
+  <div class="top">My bookings</div>
+  <div class="row"><span class="chip sel">Upcoming</span><span class="chip">Past</span></div>
+  <div class="card" data-go="o-sitter"><div class="img sm"></div><div>Sitter A · Boarding<div class="muted">12 – 15 Dec · Confirmed</div></div></div>
+  <div class="card" data-go="o-sitter"><div class="img sm"></div><div>Sitter C · Walking<div class="muted">Done · <u>★ Leave a review</u></div></div></div>
+</section>
+
+<section class="scr" id="o-pet" data-title="O9 · Pet profile" data-tabs="owner" data-flow="Owner"
+ data-notes="Saved data is shared with the sitter after a booking is made|Save → back to Request details (O2)|Multiple pets can be added">
+  <div class="top"><span class="back" data-go="o-request">←</span>Pet profile</div>
+  <div class="img" style="height:80px">pet photo</div>
+  <div class="field">Name: Hector</div><div class="field">Type / breed: Dog</div>
+  <div class="field">🍽 Meal schedule</div><div class="field">⚠ Allergies</div>
+  <div class="field">❤ Special needs / medication</div><div class="field">🩺 Vet contact</div>
+  <div class="btn pri" data-go="o-request">Save</div>
+</section>
+
+<!-- SITTER FLOW -->
+<section class="scr" id="s-onboard" data-title="S1 · Sitter onboarding and verification" data-tabs="sitter" data-flow="Sitter"
+ data-notes="Trust layer: ID upload is mandatory before the profile goes live|Services, prices and availability are set here|Submit → Sitter dashboard (S2); the profile shows a ‘Verified’ badge after approval">
+  <div class="top">Become a sitter</div>
+  <div class="img" style="height:70px">profile photo</div>
+  <div class="field">Short bio</div>
+  <div class="box">🪪 Upload ID document<br><span class="muted">Required for the Verified badge</span></div>
+  <div class="field">Services and prices ▾</div><div class="field">Availability calendar ▾</div>
+  <div class="btn pri" data-go="s-dash">Submit for verification</div>
+</section>
+
+<section class="scr" id="s-dash" data-title="S2 · Sitter dashboard" data-tabs="sitter" data-flow="Sitter"
+ data-notes="Availability toggle controls whether the sitter appears in ‘Available now’ searches|Tap a request → Request details (S3)|Earnings card shows released and pending payouts">
+  <div class="top">Dashboard <span class="chip sel" style="margin-left:auto">Available ●</span></div>
+  <div class="box">Earnings this month: <b>540 RON</b><br><span class="muted">Pending: 297 RON</span></div>
+  <b>New requests</b>
+  <div class="card" data-go="s-req"><div class="img sm"></div><div>Hector · Boarding<div class="muted">12 – 15 Dec · 270 RON</div></div></div>
+  <div class="card" data-go="s-req"><div class="img sm"></div><div>Mia · Walking<div class="muted">Tomorrow · 30 RON</div></div></div>
+</section>
+
+<section class="scr" id="s-req" data-title="S3 · Review request" data-tabs="" data-flow="Sitter"
+ data-notes="Sitter sees the owner’s pet profile (allergies, meal schedule, special needs)|Accept → Confirmation (S4) and owner is notified|Decline → back to dashboard|Message → chat (O5)">
+  <div class="top"><span class="back" data-go="s-dash">←</span>Request</div>
+  <div class="box">Boarding · 12 – 15 Dec<br>Offered: 270 RON</div>
+  <b>Pet: Hector (dog)</b>
+  <div class="box">🍽 2 meals/day · ⚠ Allergy: chicken · ❤ Needs: anxious at night</div>
+  <div class="btn" data-go="o-meet">💬 Message owner</div>
+  <div style="flex:1"></div>
+  <div class="btn pri" data-go="s-done">Accept</div>
+  <div class="btn" data-go="s-dash">Decline</div>
+</section>
+
+<section class="scr" id="s-done" data-title="S4 · Request accepted" data-tabs="" data-flow="Sitter"
+ data-notes="Owner gets a notification that the booking is confirmed|Payment is held and released to the sitter after the service|Back → Dashboard (S2)">
+  <div style="flex:1"></div>
+  <div style="text-align:center;font-size:44px">✔</div>
+  <div style="text-align:center"><b>Booking accepted</b><div class="muted">Payout of 270 RON is released after the service is completed.</div></div>
+  <div style="flex:1"></div>
+  <div class="btn pri" data-go="s-dash">Back to dashboard</div>
+</section>
+
+<div class="tabs" id="t-owner"><span data-go="o-home">🏠<br>Home</span><span data-go="o-bookings">📅<br>Bookings</span><span data-go="o-meet">💬<br>Chat</span><span data-go="o-pet">🐶<br>Pets</span></div>
+<div class="tabs" id="t-sitter"><span data-go="s-dash">📥<br>Requests</span><span data-go="o-meet">💬<br>Chat</span><span data-go="s-onboard">👤<br>Profile</span></div>
+</div>
+
+<div class="notes">
+  <span class="tag" id="ntag"></span>
+  <h3 id="ntitle"></h3>
+  <ul id="nlist"></ul>
+  <p class="hint">Flow: <b>Owner</b> O1 → O2 → O3 → O4 → O5 → O6 → O7 → O8. <b>Sitter</b> S1 → S2 → S3 → S4.</p>
+</div>
+</div>
+
+<script>
+const screens=[...document.querySelectorAll('.scr')];
+const menu=document.getElementById('menu');
+let group='';
+screens.forEach(s=>{
+  if(s.dataset.flow!==group){group=s.dataset.flow;const h=document.createElement('h3');h.textContent=group+' flow';menu.appendChild(h);}
+  const b=document.createElement('button');b.textContent=s.dataset.title;b.dataset.go=s.id;b.dataset.menu='1';menu.appendChild(b);
+});
+function show(id){
+  const s=document.getElementById(id);if(!s)return;
+  screens.forEach(x=>x.classList.toggle('on',x===s));
+  document.querySelectorAll('aside button').forEach(b=>b.classList.toggle('on',b.dataset.go===id));
+  document.getElementById('t-owner').classList.toggle('on',s.dataset.tabs==='owner');
+  document.getElementById('t-sitter').classList.toggle('on',s.dataset.tabs==='sitter');
+  document.getElementById('ntag').textContent=s.dataset.flow+' flow';
+  document.getElementById('ntitle').textContent=s.dataset.title;
+  document.getElementById('nlist').innerHTML=s.dataset.notes.split('|').map(n=>'<li>'+n+'</li>').join('');
+  s.scrollTop=0;
+  try{history.replaceState(null,'','#'+id)}catch(e){}
+}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-go]');if(t)show(t.dataset.go)});
+show((location.hash||'#o-home').slice(1));
+</script>
+</body>
+</html>
