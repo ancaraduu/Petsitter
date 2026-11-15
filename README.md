@@ -39,6 +39,10 @@ the milestone ribbons and image links work without JavaScript. Milestones
 start collapsed; select a ribbon to expand or collapse its content. With
 JavaScript enabled, navigation and direct links also open the relevant
 milestone, and printing expands all sections before restoring their state.
+M4 uses five topic tabs (users, interviews, stories, flows, and next steps),
+with expandable persona, research notes, stories, and use cases. Direct
+links select the relevant tab and open its details. All topics remain
+available without JavaScript and are included when printing.
 
 ## Publish
 

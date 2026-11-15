@@ -3,6 +3,9 @@
   const sections = [...document.querySelectorAll("[data-section]")];
   const header = document.querySelector(".site-header");
   const progress = document.querySelector(".reading-progress span");
+  const m4Tabs = document.querySelector(".m4-tabs");
+  const topicLinks = [...m4Tabs.querySelectorAll("a")];
+  const topicPanels = topicLinks.map(link => document.getElementById(link.hash.slice(1)));
   let scrollScheduled = false;
   let closedForPrint = null;
 
@@ -28,6 +31,43 @@
     window.requestAnimationFrame(updateReadingPosition);
   }
 
+  function selectTopic(panel) {
+    topicPanels.forEach((item, index) => {
+      const selected = item === panel;
+      item.hidden = !selected;
+      topicLinks[index].setAttribute("aria-selected", String(selected));
+      topicLinks[index].tabIndex = selected ? 0 : -1;
+      if (!selected) item.querySelectorAll("video").forEach(video => video.pause());
+    });
+    scheduleReadingUpdate();
+  }
+
+  m4Tabs.setAttribute("role", "tablist");
+  topicLinks.forEach((link, index) => {
+    link.setAttribute("role", "tab");
+    link.setAttribute("aria-controls", topicPanels[index].id);
+    topicPanels[index].setAttribute("role", "tabpanel");
+    topicPanels[index].setAttribute("aria-labelledby", link.id);
+    topicPanels[index].tabIndex = 0;
+  });
+  selectTopic(topicPanels[0]);
+  m4Tabs.addEventListener("keydown", (event) => {
+    const index = topicLinks.indexOf(event.target);
+    if (index < 0 || event.ctrlKey || event.metaKey || event.altKey) return;
+    let next;
+    if (event.key === "ArrowRight") next = (index + 1) % topicLinks.length;
+    else if (event.key === "ArrowLeft") next = (index - 1 + topicLinks.length) % topicLinks.length;
+    else if (event.key === "Home") next = 0;
+    else if (event.key === "End") next = topicLinks.length - 1;
+    else if (event.key === " ") {
+      event.preventDefault();
+      event.target.click();
+      return;
+    } else return;
+    event.preventDefault();
+    topicLinks[next].focus();
+  });
+
   function openLinkedContent(hash) {
     let id;
     try {
@@ -37,6 +77,8 @@
     }
     const target = document.getElementById(id);
     if (!target) return null;
+    const topic = target.closest(".m4-panel");
+    if (topic) selectTopic(topic);
     const milestone = target.closest(".milestone-section")?.querySelector(".milestone-disclosure");
     if (milestone) milestone.open = true;
     for (let ancestor = target; ancestor; ancestor = ancestor.parentElement) {
@@ -48,13 +90,22 @@
 
   function revealHashTarget() {
     const target = openLinkedContent(window.location.hash);
-    if (target) window.requestAnimationFrame(() => target.scrollIntoView({ block: "start" }));
+    if (target) window.requestAnimationFrame(() => {
+      const scrollTarget = target.matches(".m4-panel") ? m4Tabs : target;
+      scrollTarget.scrollIntoView({ block: "start" });
+    });
   }
 
   document.addEventListener("click", (event) => {
     if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
     const link = event.target.closest('a[href^="#"]');
-    if (link) openLinkedContent(link.hash);
+    if (!link) return;
+    openLinkedContent(link.hash);
+    if (topicLinks.includes(link)) {
+      event.preventDefault();
+      if (window.location.hash !== link.hash) window.history.pushState(null, "", link.hash);
+      m4Tabs.scrollIntoView({ block: "start" });
+    }
   });
   document.addEventListener("toggle", (event) => {
     if (event.target.matches(".milestone-disclosure") && !event.target.open) {
