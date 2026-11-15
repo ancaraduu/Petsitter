@@ -10,7 +10,7 @@
     <meta property="og:type" content="website">
     <title>PetSitter | Project Fiki</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=milestone-ribbons">
+    <link rel="stylesheet" href="styles.css?v=team-and-milestones">
     <script src="script.js?v=m4-tabs" defer></script>
   </head>
   <body>
@@ -78,34 +78,33 @@
         </aside>
       </section>
 
-      <div class="fiki-note wrap"><p><strong>About this page.</strong> All milestone documentation is kept on this Fiki. The customer-facing landing page is a separate M3 deliverable.</p></div>
+      <section class="team-section wrap" id="team" aria-labelledby="team-title">
+          <div class="block-heading"><div><p class="eyebrow">Team</p><h2 id="team-title">Members &amp; responsibilities</h2></div></div>
+          <div class="team-grid">
+            <article class="team-card">
+              <div class="team-photo"><img src="assets/ana-stoica.jpg" alt="Stoica Ana-Florina" width="1280" height="719" loading="lazy"></div>
+              <div class="team-copy"><span class="role-tag">Product &amp; Backend</span><h3>Stoica Ana-Florina</h3><p>Product definition and backend development.</p><a href="mailto:anaflorina.stoica70@gmail.com">anaflorina.stoica70@gmail.com</a></div>
+            </article>
+            <article class="team-card">
+              <div class="team-photo"><img src="assets/anca-radu.jpg" alt="Anca Radu" width="1280" height="719" loading="lazy"></div>
+              <div class="team-copy"><span class="role-tag lilac">Design &amp; Frontend</span><h3>Anca Radu</h3><p>Interface design and frontend implementation.</p><a href="mailto:ancaradu2411@gmail.com">ancaradu2411@gmail.com</a></div>
+            </article>
+          </div>
+      </section>
 
       <div class="milestone-list" id="milestones">
+        <div class="milestones-heading wrap"><h2>Milestones</h2></div>
       <section class="milestone-section wrap" id="m1" data-section aria-labelledby="m1-title">
         <details class="milestone-disclosure">
           <summary class="milestone-ribbon" aria-labelledby="m1-title" aria-describedby="m1-subtitle">
             <h2 class="milestone-heading">
               <span class="chapter-number pink">01</span>
-              <span class="milestone-label"><span class="eyebrow">M1 / Fiki &amp; project description</span><span id="m1-title">Project overview</span><span class="milestone-subtitle" id="m1-subtitle">Team, problem definition, proposed solution, and business model.</span></span>
+              <span class="milestone-label"><span class="eyebrow">M1 / Fiki &amp; project description</span><span id="m1-title">Project overview</span><span class="milestone-subtitle" id="m1-subtitle">Problem definition, proposed solution, customer segments, and business model.</span></span>
               <span class="deadline">Milestone deadline<time datetime="2026-10-19">19 October 2026</time></span>
               <span class="milestone-toggle" aria-hidden="true"></span>
             </h2>
           </summary>
           <div class="milestone-content">
-        <div class="section-block" id="team">
-          <div class="block-heading"><div><p class="eyebrow">Team</p><h3>Members &amp; responsibilities</h3></div></div>
-          <div class="team-grid">
-            <article class="team-card">
-              <div class="team-photo"><img src="assets/ana-stoica.jpg" alt="Stoica Ana-Florina" width="1280" height="719" loading="lazy"></div>
-              <div class="team-copy"><span class="role-tag">Product &amp; Backend</span><h4>Stoica Ana-Florina</h4><p>Product definition and backend development.</p><a href="mailto:anaflorina.stoica70@gmail.com">anaflorina.stoica70@gmail.com</a></div>
-            </article>
-            <article class="team-card">
-              <div class="team-photo"><img src="assets/anca-radu.jpg" alt="Anca Radu" width="1280" height="719" loading="lazy"></div>
-              <div class="team-copy"><span class="role-tag lilac">Design &amp; Frontend</span><h4>Anca Radu</h4><p>Interface design and frontend implementation.</p><a href="mailto:ancaradu2411@gmail.com">ancaradu2411@gmail.com</a></div>
-            </article>
-          </div>
-        </div>
-
         <div class="two-column section-block">
           <article class="panel problem-panel"><span class="mini-label">Problem</span><h3>Finding reliable pet care</h3><p>Pet owners who travel, work long hours, or face an emergency struggle to find someone reliable to look after their animal.</p><p>Friends, Facebook groups, and word of mouth can mean a slow, unstructured search: no verified reviews, no clear prices, and no dependable way to find help at short notice.</p><div class="tag-row"><span>Short-notice availability</span><span>Trust</span><span>Pricing</span></div></article>
           <article class="panel solution-panel"><span class="mini-label">Proposed solution</span><h3>A local sitter marketplace</h3><p><strong>PetSitter</strong> is a mobile app concept connecting pet owners with local pet sitters in minutes.</p><p>Our value proposition combines local availability, trustworthy profiles, transparent prices, and protected payments.</p><p class="small-note">These are planned product capabilities, not live services on this Fiki.</p></article>
@@ -342,7 +341,7 @@
         <div class="two-column section-block">
           <article class="deliverable-card">
             <div class="deliverable-icon lilac" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="12" y="5" width="24" height="38" rx="5"/><path d="M19 11h10M18 17h12v10H18zM18 32h12M21 37h6"/></svg></div>
-            <span class="mini-label">Deliverable 01</span><h3>Application wireframes</h3><p>The product's screens, functionality, and connections between views, including the behavior of buttons and navigation.</p><ul class="pretty-list"><li>Interactive owner flow from care request to booking</li><li>Interactive sitter flow from request review to acceptance</li><li>Screen notes explain navigation and key interactions</li></ul><a class="button button-primary" href="my_wireframes.html">Open wireframe <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+            <span class="mini-label">Deliverable 01</span><h3>Application wireframes</h3><p>The product's screens, functionality, and connections between views, including the behavior of buttons and navigation.</p><ul class="pretty-list"><li>Interactive owner flow from care request to booking</li><li>Interactive sitter flow from verification to payout</li><li>Revised after M4: pet-specific care, booking states, and recovery paths</li></ul><a class="button button-primary" href="my_wireframes.html?v=m4-research">Open wireframe <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a><p class="small-note"><a href="#m4-wireframe-updates">See how M4 findings changed the wireframes.</a></p>
           </article>
           <article class="deliverable-card">
             <div class="deliverable-icon pink" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="9" width="38" height="30" rx="4"/><path d="M5 17h38M10 13h2m3 0h2m3 0h2M12 24h15M12 29h10M12 34h7"/><path d="m33 26 5 4-5 4"/></svg></div>
@@ -643,9 +642,21 @@
           <div class="block-heading"><div><p class="eyebrow">Next UX iteration</p><h3>What still needs validation</h3></div></div>
           <div class="two-column">
             <article class="panel"><h4>Planned usability tasks</h4><p class="small-note">Planned, not completed. No usability results are claimed.</p><ul class="pretty-list"><li>Ask a pet owner to find suitable care for Andreea's next-day trip and explain why they trust the selected sitter.</li><li>Ask the owner to identify the total price and distinguish a pending request from a confirmed booking.</li><li>Introduce an empty result or failed payment and observe whether the owner can recover without help.</li><li>Ask a potential sitter to set availability, evaluate a request, and explain when they expect to receive payment.</li></ul><p class="small-note">Record task completion, time, errors, requests for help, and participants' explanations. Test the prototype with owners and sitters, then revise the flows.</p></article>
-            <article class="panel"><h4>Open design decisions</h4><ul class="pretty-list"><li>Request expiry and payment-window duration, including how long availability is held.</li><li>The identity-verification process and exactly what the badge communicates.</li><li>Cancellation/refund terms, dispute handling, payout timing, and escalation when completion is not confirmed.</li><li>Whether owners can complete the booking flow comfortably on a phone and how much detail they need before trusting a sitter.</li></ul><p class="small-note">These are UX and operational assumptions, not validated policies. The M3 wireframes will need to cover the screens and states documented here.</p></article>
+            <article class="panel"><h4>Open design decisions</h4><ul class="pretty-list"><li>Request expiry and payment-window duration, including how long availability is held.</li><li>The identity-verification process and exactly what the badge communicates.</li><li>Cancellation/refund terms, dispute handling, payout timing, and escalation when completion is not confirmed.</li><li>Whether owners can complete the booking flow comfortably on a phone and how much detail they need before trusting a sitter.</li></ul><p class="small-note">The updated wireframes illustrate these states; policy details and usability still need validation.</p></article>
           </div>
         </div>
+        <details class="m4-fold section-block" id="m4-wireframe-updates">
+          <summary><h3 class="m4-fold-heading"><span><span class="mini-label">M3 revisited after M4</span>Wireframe changes from our findings</span><span class="details-toggle" aria-hidden="true">+</span></h3></summary>
+          <div class="m4-fold-content">
+            <p class="section-intro">We reviewed the original M3 screens against the recorded interviews and proposed M4 flows, then updated the same clickable wireframe. These are prototype revisions, not completed usability tests or live services.</p>
+            <div class="research-links">
+              <article><span class="mini-label">Anda / Urgent care</span><h4>Make urgency and unsuccessful searches explicit</h4><p>The urgent path now collects a required care window instead of skipping straight to results. Empty results, declined requests, and expiry preserve the owner's care requirements and offer a deliberate retry.</p><a href="my_wireframes.html?v=m4-research#o-request">Request details</a> &middot; <a href="my_wireframes.html?v=m4-research#o-empty">No-match screen</a></article>
+              <article><span class="mini-label">Aida &amp; Raul / Different care needs</span><h4>Match the pet, not just the location</h4><p>Dog, cat, and bird examples have different service options and care instructions. Quiet care, no other animals, relevant experience, and species-specific reviews now appear in search and sitter profiles.</p><a href="my_wireframes.html?v=m4-research#o-results">Matching criteria</a> &middot; <a href="my_wireframes.html?v=m4-research#o-pet">Pet care profile</a></article>
+              <article><span class="mini-label">M4 stories &amp; UC-01 / Trust and booking</span><h4>Separate a request from confirmed care</h4><p>Care details are shared for sitter review before acceptance. The revised sequence is request, sitter acceptance, payment, then confirmation. Failed and uncertain payments have separate recovery states; ID verification is not presented as proof of care expertise.</p><a href="my_wireframes.html?v=m4-research#o-pending">Pending request</a> &middot; <a href="my_wireframes.html?v=m4-research#o-payment">Payment recovery</a></article>
+              <article><span class="mini-label">M4 stories &amp; UC-03/04 / Sitter flow</span><h4>Show verification, completion, and payout separately</h4><p>Submitting an ID no longer implies approval. Verification can remain pending or need correction. Care completion and unresolved issues are separate from reviews, and payout screens distinguish pending, processing, paid, and failed transfers.</p><a href="my_wireframes.html?v=m4-research#s-verification">Verification status</a> &middot; <a href="my_wireframes.html?v=m4-research#s-payout">Payout states</a></article>
+            </div>
+          </div>
+        </details>
         <div class="next-chapter"><span class="next-chapter-mark" aria-hidden="true">M5+</span><div><h3>Future milestones</h3><p>Additional deliverables and supporting evidence will be documented on this page.</p></div></div>
         </div>
           </div>

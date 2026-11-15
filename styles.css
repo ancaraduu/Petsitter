@@ -90,14 +90,16 @@ strong { font-weight: 700; }
 .project-summary dl > div { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 18px; padding: 12px 0; border-top: 1px solid #ded5df; }
 .project-summary dt { color: var(--muted); }
 .project-summary dd { margin: 0; font-weight: 500; }
-.fiki-note { padding: 16px 21px; border-left: 3px solid #b9a2b3; background: #f1edef; color: var(--muted); font-size: .77rem; }
-.fiki-note strong { color: var(--ink); }
+.team-section { padding-top: 12px; }
+.team-section h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); }
 
 .block-heading { display: flex; align-items: end; justify-content: space-between; gap: 25px; margin-bottom: 28px; }
 .three-column { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .badge { border: 1px solid #94758425; border-radius: 999px; padding: 4px 8px; color: #675160; font-size: .58rem; line-height: 1.5; background: #fffdfa60; }
 
-.milestone-list { padding-top: 40px; }
+.milestone-list { padding-top: 56px; }
+.milestones-heading { margin-bottom: 22px; }
+.milestones-heading h2 { font-size: clamp(2.4rem, 5vw, 3.4rem); }
 .milestone-section { padding-block: 9px; }
 .milestone-ribbon { display: block; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); transition: background .2s, border-color .2s; }
 .milestone-ribbon:hover { background: #f6f1f4; border-color: #b297aa; }
@@ -128,7 +130,7 @@ strong { font-weight: 700; }
 .team-copy { min-width: 0; }
 .role-tag { display: inline-block; padding: 3px 9px; margin-bottom: 9px; border-radius: 4px; color: var(--rose-dark); background: var(--pink); font-size: .63rem; }
 .role-tag.lilac { background: var(--lilac); color: #685179; }
-.team-copy h4 { margin-bottom: 8px; font-family: var(--serif); font-size: 1.4rem; font-weight: 400; line-height: 1.3; }
+.team-copy h3 { margin-bottom: 8px; font-family: var(--serif); font-size: 1.4rem; font-weight: 400; line-height: 1.3; }
 .team-copy p { margin-bottom: 9px; color: var(--muted); font-size: .75rem; }
 .team-copy a { color: var(--rose); font-size: .68rem; overflow-wrap: anywhere; }
 .panel { padding: 30px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); }
@@ -382,7 +384,7 @@ figcaption p { color: var(--muted); font-size: .78rem; line-height: 1.8; }
   .team-card { padding: 20px; gap: 17px; }
   .team-photo, .team-photo img { width: 100px; }
   .team-photo img { height: 135px; }
-  .team-copy h4 { font-size: 1.25rem; }
+  .team-copy h3 { font-size: 1.25rem; }
   .team-copy a { font-size: .64rem; }
 }
 @media (max-width: 800px) {
@@ -401,7 +403,7 @@ figcaption p { color: var(--muted); font-size: .78rem; line-height: 1.8; }
   .team-card { align-items: start; flex-direction: column; }
   .team-photo { width: 100%; max-width: 150px; margin-inline: auto; }
   .team-photo img { width: 150px; height: 170px; }
-  .team-copy h4 { font-size: 1.45rem; }
+  .team-copy h3 { font-size: 1.45rem; }
   .team-copy a { font-size: .72rem; }
   .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .three-column, .evidence-grid { gap: 12px; }
@@ -445,8 +447,7 @@ figcaption p { color: var(--muted); font-size: .78rem; line-height: 1.8; }
   .hero-facts > span { padding-inline: 12px; }
   .hero-facts strong { font-size: 1.3rem; }
   .project-summary dl > div { grid-template-columns: 88px minmax(0, 1fr); gap: 14px; }
-  .fiki-note { padding: 15px 18px; font-size: .73rem; }
-  .milestone-list { padding-top: 28px; }
+  .milestone-list { padding-top: 42px; }
   .two-column, .team-grid, .three-column, .evidence-grid, .finding-highlights, .results-grid { grid-template-columns: 1fr; }
   .milestone-heading { grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; padding: 18px 15px; font-size: 1.3rem; }
   .chapter-number { width: 46px; height: 46px; font-size: 1.2rem; border-radius: 7px; }
@@ -464,7 +465,7 @@ figcaption p { color: var(--muted); font-size: .78rem; line-height: 1.8; }
   .team-card { flex-direction: row; align-items: center; padding: 20px 17px; gap: 19px; }
   .team-photo { width: 94px; margin: 0; }
   .team-photo img { width: 94px; height: 132px; }
-  .team-copy h4 { font-size: 1.25rem; }
+  .team-copy h3 { font-size: 1.25rem; }
   .team-copy a { font-size: .65rem; }
   .panel, .audience-card { padding: 25px; }
   .feature-grid { gap: 12px; }
@@ -543,7 +544,7 @@ figcaption p { color: var(--muted); font-size: .78rem; line-height: 1.8; }
   .hero-facts > span { padding-inline: 8px; font-size: .6rem; }
   .team-card { gap: 14px; }
   .team-photo, .team-photo img { width: 76px; }
-  .team-copy h4 { font-size: 1.15rem; }
+  .team-copy h3 { font-size: 1.15rem; }
   .feature-grid { grid-template-columns: 1fr; }
   .user-type-card { align-items: center; flex-direction: row; gap: 12px; padding: 16px; }
   .user-type-card > img { width: 64px; height: 64px; }
@@ -562,7 +563,6 @@ figcaption p { color: var(--muted); font-size: .78rem; line-height: 1.8; }
   .hero h1 { font-size: 36pt; }
   .hero-facts { margin-top: 15px; }
   .project-summary { margin-top: 20px; break-inside: avoid; }
-  .fiki-note { margin-bottom: 25px; }
   .milestone-list { padding-top: 0; }
   .milestone-section { break-before: page; }
   .milestone-heading { margin-top: 10px; break-inside: avoid; }

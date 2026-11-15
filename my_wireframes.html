@@ -10,10 +10,10 @@ body{margin:0;background:#e9e9e9;color:#222;font:14px/1.4 system-ui,Arial,sans-s
 h1{font-size:20px;margin:0 0 4px} .sub{color:#666;margin:0 0 16px;font-size:13px}
 .app{display:flex;gap:24px;max-width:1100px;margin:0 auto;padding:20px;flex-wrap:wrap;justify-content:center;align-items:flex-start}
 aside{width:230px}
-aside h3{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#666;margin:14px 0 6px}
+aside h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#666;margin:14px 0 6px}
 aside button{display:block;width:100%;text-align:left;background:#fff;border:1px solid #bbb;border-radius:6px;padding:6px 10px;margin-bottom:4px;cursor:pointer;font:inherit}
 aside button.on{background:#222;color:#fff;border-color:#222}
-.phone{width:340px;height:660px;border:3px solid #222;border-radius:30px;background:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.phone{width:340px;max-width:100%;height:660px;flex-shrink:0;border:3px solid #222;border-radius:30px;background:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column}
 .scr{flex:1;overflow-y:auto;padding:14px;display:none;flex-direction:column;gap:10px}
 .scr.on{display:flex}
 .top{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px}
@@ -29,7 +29,7 @@ aside button.on{background:#222;color:#fff;border-color:#222}
 [data-go]{cursor:pointer}
 [data-go]:hover{outline:2px solid #e8590c;outline-offset:1px}
 .card{border:1.5px solid #888;border-radius:10px;padding:10px;display:flex;gap:10px;align-items:center}
-.muted{color:#777;font-size:12px}
+.muted{color:#666;font-size:12px}
 .bad{background:#222;color:#fff;border-radius:4px;padding:0 5px;font-size:11px}
 .bub{max-width:80%;padding:7px 10px;border-radius:12px;border:1.5px solid #888;font-size:13px}
 .bub.me{align-self:flex-end;background:#eee}
@@ -38,163 +38,288 @@ aside button.on{background:#222;color:#fff;border-color:#222}
 .tabs span{cursor:pointer;text-align:center}
 .field{border:1.5px solid #888;border-radius:6px;padding:7px 9px;color:#666;background:#fff}
 .notes{width:260px;background:#fff;border:1.5px solid #888;border-radius:10px;padding:14px}
-.notes h3{margin:0 0 8px;font-size:15px} .notes li{margin-bottom:6px;font-size:13px}
+.notes h2{margin:0 0 8px;font-size:15px} .notes li{margin-bottom:6px;font-size:13px}
 .notes ul{padding-left:18px;margin:0}
-.tag{display:inline-block;font-size:11px;border:1px solid #e8590c;color:#e8590c;border-radius:4px;padding:0 5px;margin-bottom:8px}
+.tag{display:inline-block;font-size:11px;border:1px solid #9c3d00;color:#9c3d00;border-radius:4px;padding:0 5px;margin-bottom:8px}
 .hint{font-size:12px;color:#666;margin-top:12px}
+button,select{font:inherit}
+button{cursor:pointer;color:inherit}
+button:disabled{cursor:not-allowed;opacity:.55}
+[hidden]{display:none!important}
+button:focus-visible,select:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline:3px solid #9c3d00;outline-offset:3px}
+.scr:focus-visible{outline:2px solid #9c3d00;outline-offset:-3px}
+.screen-picker{display:none}
+.field select{width:100%;margin-top:5px;border:0;background:#fff;color:#222}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:12px}
+.check input{margin-top:3px}
+.demo-options{display:grid;gap:6px;border-top:1px dashed #aaa;padding-top:10px}
+.demo-options button{padding:7px;border:1px solid #999;border-radius:6px;background:#f4f4f4;font-size:12px;text-align:left}
+.status{border-left:4px solid #222;padding:9px;background:#eee;font-size:13px}
+.full{width:100%}
+.review-form{display:grid;gap:8px}
+@media(max-width:700px){.app{padding:16px;gap:18px}aside,.notes{width:100%}#menu{display:none}.screen-picker{display:grid;gap:6px}.screen-picker select{width:100%;padding:9px}.phone{width:min(340px,100%)}}
 </style>
 </head>
 <body>
-<div class="app">
+<main class="app">
 <aside>
   <h1>🐾 PetSitter</h1>
-  <p class="sub">Low-fidelity wireframes. Click any boxed element with an orange outline on hover to follow the flow.</p>
-  <div id="menu"></div>
+  <p class="sub">Low-fidelity wireframes, revised after M4. Follow the controls or choose a screen to preview a state.</p>
+  <p class="hint">Fictional profiles and illustrative prices. All requests, payments, verification, and payouts are simulated.</p>
+  <noscript><p>This interactive prototype needs JavaScript. The Fiki also includes readable user flows and the revision log.</p></noscript>
+  <p><a href="index.html#m4-wireframe-updates">M4 findings &amp; revisions</a></p>
+  <label class="screen-picker" for="screen-select">Preview a screen<select id="screen-select"></select></label>
+  <nav id="menu" aria-label="Wireframe screens"></nav>
 </aside>
 
 <div class="phone" id="phone">
 
 <!-- OWNER FLOW -->
 <section class="scr" id="o-home" data-title="O1 · Home (owner)" data-tabs="owner" data-flow="Owner"
- data-notes="Search bar / care-type chip → Request details (O2)|⚡ Urgent button → Search results with ‘available today’ filter (O3)|Upcoming booking card → My bookings (O8)|Bottom tabs: Home, Bookings, Chat, Pets">
+ data-notes="Start with the pet, service, area, and care window in Request details (O2)|Urgent care also collects a required start time; it does not skip suitability checks|Owner and sitter examples share one simulated request; the screen menu can preview individual states">
   <div class="top">PetSitter <span class="muted" style="margin-left:auto">📍 Location ▾</span></div>
-  <div class="field" data-go="o-request">🔍 Where and when do you need care?</div>
-  <div class="btn pri" data-go="o-results">⚡ Urgent: find a sitter today</div>
+  <button class="field" data-action="new-request">Where and when do you need care?</button>
+  <button class="btn pri" data-action="urgent">Urgent: arrange short-notice care</button>
   <b>Services</b>
   <div class="row"><span class="chip" data-go="o-request">🦮 Walking</span><span class="chip" data-go="o-request">🏠 Home care</span><span class="chip" data-go="o-request">🛏 Boarding</span><span class="chip" data-go="o-request">👀 Drop-in visit</span></div>
-  <b>Upcoming</b>
-  <div class="card" data-go="o-bookings"><div class="img sm"></div><div>Walk with Hector<div class="muted">Tomorrow, 18:00 · Confirmed</div></div></div>
+  <b>Your care request</b>
+  <div class="card" data-go="o-bookings"><div class="img sm"></div><div><span data-bind="pet"></span><div class="muted" data-bind="booking-status"></div></div></div>
   <div class="box muted">Banner: “Add your pet’s profile so sitters know allergies and routines.” <u data-go="o-pet">Add pet</u></div>
 </section>
 
 <section class="scr" id="o-request" data-title="O2 · Request details" data-tabs="" data-flow="Owner"
- data-notes="Back → Home|Choosing a pet loads its saved profile (O9)|‘Add / edit pet’ → Pet profile (O9)|Find sitters → Search results (O3) filtered by location, dates and service">
+ data-notes="M4: choose a dog, cat, or bird example; the available care formats and shared instructions change with the pet|Urgent requests include a required start time and still require an accepted, paid booking|Quiet care and a home without other animals are explicit matching requirements, not assumptions|Find sitters carries the chosen requirements into the example results; changing filters is always deliberate">
   <div class="top"><span class="back" data-go="o-home">←</span>New request</div>
-  <b>Care type</b>
-  <div class="row"><span class="chip sel">Boarding</span><span class="chip">Walking</span><span class="chip">Home care</span><span class="chip">Drop-in</span></div>
-  <b>Pet</b>
-  <div class="card" data-go="o-pet"><div class="img sm"></div><div>Hector · Dog<div class="muted">Edit pet profile ›</div></div></div>
-  <b>Dates and time</b>
-  <div class="row"><div class="field" style="flex:1">From ▾</div><div class="field" style="flex:1">To ▾</div></div>
+  <label class="field" for="pet-choice">Pet example<select id="pet-choice"><option value="dog">Hector / Dog</option><option value="cat">Luna / Cat</option><option value="bird">Rico / Cockatiel</option></select></label>
+  <label class="field" for="service-choice">Care format<select id="service-choice"></select></label>
+  <button class="btn" data-go="o-pet">Review pet profile &amp; care instructions</button>
+  <label class="check"><input id="urgent-care" type="checkbox">Short-notice request</label>
+  <b>Dates and required start</b>
+  <div class="field" data-bind="care-window"></div>
+  <div class="muted">Example date/time fields; a real request must specify its actual care window.</div>
   <b>Location</b><div class="field">📍 Address / area</div>
-  <b>Notes for sitters</b><div class="field" style="height:60px">Optional…</div>
-  <div class="btn pri" data-go="o-results">Find sitters</div>
+  <b>Care environment</b>
+  <label class="check"><input id="quiet-care" type="checkbox">Quiet, familiar care setting</label>
+  <label class="check" data-show="boarding-care"><input id="no-other-pets" type="checkbox">No other animals in the sitter's home</label>
+  <div class="muted" data-show="bird-boarding">Required by Rico's example care profile for boarding.</div>
+  <div class="box muted" data-bind="instructions"></div>
+  <button class="btn pri" data-action="find">Find sitters</button>
 </section>
 
 <section class="scr" id="o-results" data-title="O3 · Sitter search results" data-tabs="" data-flow="Owner"
- data-notes="Filter chips refresh the list (available now, verified, price, rating)|List / map toggle switches view|Tap a sitter card → Sitter profile (O4)|Back → Request details (O2)">
+ data-notes="M4: results show the selected pet, service, care window, and environment requirements|Profiles show identity verification separately from species-specific experience and completed-booking reviews|Example sitters are fictional, not actual matches; prices update with the care format|Preview no matches demonstrates recovery without silently relaxing verification or compatibility filters">
   <div class="top"><span class="back" data-go="o-request">←</span>Sitters near you</div>
-  <div class="row"><span class="chip sel">Available now</span><span class="chip">✔ Verified</span><span class="chip">≤ 100 RON</span><span class="chip">★ 4+</span></div>
-  <div class="row"><span class="chip sel">List</span><span class="chip">Map</span></div>
-  <div class="card" data-go="o-sitter"><div class="img sm"></div><div><b>Sitter A</b> <span class="bad">✔ Verified</span><div class="muted">★ 4.9 (23) · 0.8 km</div><div>90 RON / day</div></div></div>
-  <div class="card" data-go="o-sitter"><div class="img sm"></div><div><b>Sitter B</b> <span class="bad">✔ Verified</span><div class="muted">★ 4.7 (11) · 1.5 km</div><div>110 RON / day</div></div></div>
-  <div class="card" data-go="o-sitter"><div class="img sm"></div><div><b>Sitter C</b> <span class="bad">✔ Verified</span><div class="muted">★ 4.6 (6) · 2.3 km</div><div>75 RON / day</div></div></div>
+  <div class="box"><b data-bind="pet"></b> / <span data-bind="service"></span><br><span class="muted" data-bind="care-window"></span></div>
+  <div class="row"><span class="chip">ID checked</span><span class="chip" data-bind="experience"></span></div>
+  <div class="box muted" data-bind="environment"></div>
+  <button class="card" data-action="choose-sitter" data-sitter="A"><span class="img sm"></span><span><b>Sitter A</b> <span class="bad">ID verified</span><span class="muted full">4.9 / 23 completed-booking reviews</span><br><span data-bind="rate-a"></span></span></button>
+  <button class="card" data-action="choose-sitter" data-sitter="B"><span class="img sm"></span><span><b>Sitter B</b> <span class="bad">ID verified</span><br><span class="muted">New sitter / no reviews yet</span><br><span data-bind="rate-b"></span></span></button>
+  <div class="muted">Example availability is not a confirmed booking.</div>
+  <div class="demo-options"><button data-go="o-empty">Preview no matches</button></div>
 </section>
 
 <section class="scr" id="o-sitter" data-title="O4 · Sitter profile" data-tabs="" data-flow="Owner"
- data-notes="‘Free meet & greet’ → Chat with video-call scheduling (O5)|‘Book now’ → Booking summary and payment (O6)|Reviews list is scrollable; only owners with a completed booking can review|Back → Results (O3)">
-  <div class="top"><span class="back" data-go="o-results">←</span>Sitter A</div>
+ data-notes="M4: ID checked does not certify care expertise; experience and pet-specific reviews are shown separately|The selected pet's care requirements are shared only with this sitter when the request is sent|Request care leads to Pending, not checkout; payment follows sitter acceptance|A meet-and-greet is optional and does not confirm the booking">
+  <div class="top"><span class="back" data-go="o-results">←</span><span data-bind="sitter"></span></div>
   <div class="img" style="height:90px">photo</div>
-  <div class="row"><span class="bad">✔ ID verified</span><span>★ 4.9 (23 reviews)</span></div>
-  <div class="box">About: short bio, experience with dogs and cats.</div>
-  <b>Services and prices</b>
-  <div class="box">Walking 30 RON · Drop-in 40 RON · Home care 90 RON · Boarding 110 RON</div>
-  <b>Availability</b><div class="box muted">▢▢▣▣▣▢▢ · mini calendar</div>
-  <b>Reviews</b><div class="box muted">★★★★★ “Great with my dog” …</div>
+  <div class="bad">ID checked / illustrative profile</div>
+  <div class="muted">Identity verification is not a certification of care skills.</div>
+  <div class="box"><b data-bind="experience"></b><br><span data-bind="environment"></span></div>
+  <b>Selected service &amp; availability</b>
+  <div class="box"><span data-bind="service"></span> / <span data-bind="rate"></span><br><span class="muted" data-bind="care-window"></span></div>
+  <b>Relevant completed-booking reviews</b><div class="box muted" data-bind="reviews"></div>
+  <b>Care details to share with this sitter</b><div class="box muted" data-bind="instructions"></div>
   <div class="btn" data-go="o-meet">🎥 Free 15-min meet &amp; greet</div>
-  <div class="btn pri" data-go="o-book">Book now</div>
+  <button class="btn pri" data-action="send-request">Send care request / no payment yet</button>
 </section>
 
 <section class="scr" id="o-meet" data-title="O5 · Chat and meet & greet" data-tabs="owner" data-flow="Owner"
- data-notes="In-app chat (and call) between owner and sitter|‘Schedule video call’ proposes a 15-min slot; both get a notification|‘Looks good, book’ → Booking summary (O6)|Same screen is used by the sitter">
-  <div class="top"><span class="back" data-go="o-sitter">←</span>Chat · Sitter A <span style="margin-left:auto">📞</span></div>
+ data-notes="Chat and scheduling are low-fidelity placeholders, not a working messaging service|An introductory conversation does not confirm care|Sending a request still requires sitter acceptance before payment">
+  <div class="top"><span class="back" data-go="o-sitter">←</span>Chat / care request</div>
   <div class="bub">Hi! I’m free this weekend 🙂</div>
   <div class="bub me">Great, can we do a quick intro call?</div>
   <div class="box" style="text-align:center">🎥 Meet &amp; greet · Sat 17:00 · 15 min</div>
   <div style="flex:1"></div>
   <div class="field">Type a message…</div>
   <div class="btn" >Schedule video call</div>
-  <div class="btn pri" data-go="o-book">Looks good, book</div>
+  <button class="btn pri" data-action="send-request" data-show="request-draft">Send care request</button>
+  <button class="btn pri" data-action="open-status" data-show="request-sent">View request / booking status</button>
 </section>
 
 <section class="scr" id="o-book" data-title="O6 · Booking summary and payment" data-tabs="" data-flow="Owner"
- data-notes="Shows service, pet, dates and price breakdown (care + service fee)|Payment method picker (card)|‘Pay and confirm’ → Confirmation (O7); funds are held until the service is completed|Back → Sitter profile (O4)">
-  <div class="top"><span class="back" data-go="o-sitter">←</span>Confirm booking</div>
-  <div class="box">Sitter A · Boarding<br>Hector (dog)<br>12 – 15 Dec · 3 days</div>
-  <div class="box">3 × 90 RON = 270 RON<br>Service fee = 27 RON<br><b>Total = 297 RON</b></div>
+ data-notes="M4: checkout is available only after sitter acceptance; availability must be rechecked before a real payment|All amounts follow the selected pet, care format, and sitter; the 10% owner fee is illustrative, not validated pricing|Cancellation/refund terms must be displayed here before launch; this prototype does not invent a policy|Preview payment outcomes without making a real charge">
+  <div class="top"><span class="back" data-go="o-pending">←</span>Review &amp; pay</div>
+  <div class="status" data-bind="booking-status"></div>
+  <div class="box"><span data-bind="sitter"></span> / <span data-bind="service"></span><br><span data-bind="pet"></span><br><span data-bind="care-window"></span></div>
+  <div class="box"><span data-bind="price-breakdown"></span><br>Illustrative service fee: <span data-bind="fee"></span><br><b>Total: <span data-bind="total"></span></b></div>
+  <div class="box muted">Cancellation/refund terms belong here before payment. Policy still to be defined and validated.</div>
   <b>Payment</b><div class="field">💳 •••• 4242 ▾</div>
   <div class="muted">🔒 Money is held securely and released to the sitter after the service.</div>
   <div style="flex:1"></div>
-  <div class="btn pri" data-go="o-confirm">Pay and confirm</div>
+  <button class="btn pri" data-action="pay" data-needs="payable">Simulate successful payment</button>
+  <div class="demo-options"><button data-action="payment-failed" data-needs="payable">Preview failed payment</button><button data-action="payment-processing" data-needs="payable">Preview uncertain payment result</button></div>
 </section>
 
 <section class="scr" id="o-confirm" data-title="O7 · Booking confirmation" data-tabs="" data-flow="Owner"
- data-notes="Push notification and email sent to owner and sitter|‘View booking’ → My bookings (O8)|‘Chat with sitter’ → Chat (O5)">
+ data-notes="M4: this state is reached only after sitter acceptance and successful payment|The owner and sitter should see the same confirmed booking|Notifications are supplementary; the booking record remains available in My bookings">
   <div style="flex:1"></div>
   <div style="text-align:center;font-size:44px">✔</div>
-  <div style="text-align:center"><b>Request sent!</b><div class="muted">Sitter A has been notified and will confirm shortly.</div></div>
+  <div style="text-align:center"><b>Booking confirmed</b><div class="muted">Sitter accepted. Payment succeeded.</div></div>
+  <div class="box"><span data-bind="pet"></span> / <span data-bind="service"></span><br><span data-bind="care-window"></span><br>Paid: <span data-bind="total"></span></div>
   <div style="flex:1"></div>
   <div class="btn pri" data-go="o-bookings">View booking</div>
   <div class="btn" data-go="o-meet">Chat with sitter</div>
 </section>
 
 <section class="scr" id="o-bookings" data-title="O8 · My bookings" data-tabs="owner" data-flow="Owner"
- data-notes="Tabs switch between Upcoming and Past|Tap a booking → Sitter profile (O4)|After a completed service, ‘Leave a review’ rates the sitter and releases the payment">
+ data-notes="M4: the current request has an explicit status; pending is not confirmed care|Open status follows the appropriate pending, payment, outcome, or confirmed screen|Only completed care permits a review; leaving a review does not release payment">
   <div class="top">My bookings</div>
-  <div class="row"><span class="chip sel">Upcoming</span><span class="chip">Past</span></div>
-  <div class="card" data-go="o-sitter"><div class="img sm"></div><div>Sitter A · Boarding<div class="muted">12 – 15 Dec · Confirmed</div></div></div>
-  <div class="card" data-go="o-sitter"><div class="img sm"></div><div>Sitter C · Walking<div class="muted">Done · <u>★ Leave a review</u></div></div></div>
+  <div class="status" data-bind="booking-status"></div>
+  <div class="box"><span data-bind="pet"></span> / <span data-bind="service"></span><br><span data-bind="care-window"></span></div>
+  <button class="btn pri" data-action="open-status">Open request / booking status</button>
+  <button class="btn" data-go="o-complete" data-needs="confirmed">Completion &amp; review</button>
+  <div class="demo-options"><button data-action="preview-completed">Preview a completed service</button></div>
 </section>
 
 <section class="scr" id="o-pet" data-title="O9 · Pet profile" data-tabs="owner" data-flow="Owner"
- data-notes="Saved data is shared with the sitter after a booking is made|Save → back to Request details (O2)|Multiple pets can be added">
+ data-notes="M4: routines, allergies, emergency contact, and species-specific handling needs are reviewed before a request|Care details are shared privately with the selected sitter when the request is sent, not on public search cards|Bird and cat examples come from the needs identified in M4; these example profiles are fictional">
   <div class="top"><span class="back" data-go="o-request">←</span>Pet profile</div>
   <div class="img" style="height:80px">pet photo</div>
-  <div class="field">Name: Hector</div><div class="field">Type / breed: Dog</div>
-  <div class="field">🍽 Meal schedule</div><div class="field">⚠ Allergies</div>
-  <div class="field">❤ Special needs / medication</div><div class="field">🩺 Vet contact</div>
+  <div class="field" data-bind="pet"></div>
+  <div class="box" data-bind="instructions"></div>
+  <div class="field">Vet / emergency contact: saved privately</div>
+  <div class="box muted">Shared with the selected sitter when you send a request. Not displayed on public results.</div>
   <div class="btn pri" data-go="o-request">Save</div>
 </section>
 
 <!-- SITTER FLOW -->
 <section class="scr" id="s-onboard" data-title="S1 · Sitter onboarding and verification" data-tabs="sitter" data-flow="Sitter"
- data-notes="Trust layer: ID upload is mandatory before the profile goes live|Services, prices and availability are set here|Submit → Sitter dashboard (S2); the profile shows a ‘Verified’ badge after approval">
+ data-notes="M4: submission leads to Pending verification, not approval|An ID check is mandatory before a profile becomes bookable; care experience is collected separately|A correction can be requested without losing the saved service details">
   <div class="top">Become a sitter</div>
   <div class="img" style="height:70px">profile photo</div>
   <div class="field">Short bio</div>
   <div class="box">🪪 Upload ID document<br><span class="muted">Required for the Verified badge</span></div>
+  <div class="field">Pet types, care experience &amp; home environment</div>
   <div class="field">Services and prices ▾</div><div class="field">Availability calendar ▾</div>
-  <div class="btn pri" data-go="s-dash">Submit for verification</div>
+  <button class="btn pri" data-action="submit-verification">Submit for verification</button>
 </section>
 
 <section class="scr" id="s-dash" data-title="S2 · Sitter dashboard" data-tabs="sitter" data-flow="Sitter"
- data-notes="Availability toggle controls whether the sitter appears in ‘Available now’ searches|Tap a request → Request details (S3)|Earnings card shows released and pending payouts">
-  <div class="top">Dashboard <span class="chip sel" style="margin-left:auto">Available ●</span></div>
-  <div class="box">Earnings this month: <b>540 RON</b><br><span class="muted">Pending: 297 RON</span></div>
+ data-notes="M4: a pending or correction-needed profile is not bookable and cannot accept requests|Calendar edits change future availability, not existing confirmed bookings|The current request shows estimated care earnings, not the owner's total including fees|Payout status has its own screen and is not changed by a review">
+  <div class="top">Dashboard</div>
+  <div class="status" data-bind="verification-status"></div>
+  <button class="btn" data-go="s-onboard">Edit services &amp; availability</button>
+  <button class="btn" data-go="s-payout">Earnings &amp; payout status</button>
+  <div class="box" data-show="request-sent"><b>Current request / booking</b><br><span data-bind="booking-status"></span><br><span class="muted" data-bind="care-window"></span></div>
   <b>New requests</b>
-  <div class="card" data-go="s-req"><div class="img sm"></div><div>Hector · Boarding<div class="muted">12 – 15 Dec · 270 RON</div></div></div>
-  <div class="card" data-go="s-req"><div class="img sm"></div><div>Mia · Walking<div class="muted">Tomorrow · 30 RON</div></div></div>
+  <button class="card" data-go="s-req" data-show="reviewable"><span class="img sm"></span><span><span data-bind="pet"></span><br><span data-bind="service"></span><br><span class="muted" data-bind="booking-status"></span></span></button>
+  <div class="muted">Requests require an approved profile and appropriate availability.</div>
+  <div class="demo-options"><button data-action="sample-request" data-needs="bookable">Load a sample incoming request</button></div>
 </section>
 
 <section class="scr" id="s-req" data-title="S3 · Review request" data-tabs="" data-flow="Sitter"
- data-notes="Sitter sees the owner’s pet profile (allergies, meal schedule, special needs)|Accept → Confirmation (S4) and owner is notified|Decline → back to dashboard|Message → chat (O5)">
+ data-notes="M4: inspect the selected pet's shared care instructions, required window, environment, and estimated earnings before accepting|Acceptance requires approval and an availability recheck; it creates Awaiting payment, not confirmed care|Decline demonstrates the owner's recovery screen without taking payment">
   <div class="top"><span class="back" data-go="s-dash">←</span>Request</div>
-  <div class="box">Boarding · 12 – 15 Dec<br>Offered: 270 RON</div>
-  <b>Pet: Hector (dog)</b>
-  <div class="box">🍽 2 meals/day · ⚠ Allergy: chicken · ❤ Needs: anxious at night</div>
+  <div class="status" data-bind="booking-status"></div>
+  <div class="box"><span data-bind="service"></span><br><span data-bind="care-window"></span><br>Estimated care earnings: <span data-bind="care-total"></span></div>
+  <b data-bind="pet"></b>
+  <div class="box" data-bind="instructions"></div>
+  <div class="box muted" data-bind="environment"></div>
+  <div class="muted">Respond before care starts. The exact expiry and availability-hold policy remains to be validated.</div>
   <div class="btn" data-go="o-meet">💬 Message owner</div>
   <div style="flex:1"></div>
-  <div class="btn pri" data-go="s-done">Accept</div>
-  <div class="btn" data-go="s-dash">Decline</div>
+  <button class="btn pri" data-action="accept" data-needs="reviewable">Accept request</button>
+  <button class="btn" data-action="decline" data-needs="reviewable">Decline request</button>
 </section>
 
 <section class="scr" id="s-done" data-title="S4 · Request accepted" data-tabs="" data-flow="Sitter"
- data-notes="Owner gets a notification that the booking is confirmed|Payment is held and released to the sitter after the service|Back → Dashboard (S2)">
+ data-notes="M4: sitter acceptance is not a paid booking|The owner is notified to review the total and pay; both parties see Awaiting payment|Continue as owner is a prototype shortcut to show the other side of the same request">
   <div style="flex:1"></div>
   <div style="text-align:center;font-size:44px">✔</div>
-  <div style="text-align:center"><b>Booking accepted</b><div class="muted">Payout of 270 RON is released after the service is completed.</div></div>
+  <div style="text-align:center"><b>Request accepted</b><div class="muted">Awaiting owner payment. Care is not confirmed yet.</div></div>
   <div style="flex:1"></div>
   <div class="btn pri" data-go="s-dash">Back to dashboard</div>
+  <button class="btn" data-go="o-book">Continue as owner / review payment</button>
+</section>
+
+<section class="scr" id="o-empty" data-title="O10 · No suitable matches" data-tabs="" data-flow="Owner"
+ data-notes="M4: no-match recovery is explicit; urgency does not bypass verification or pet compatibility|The selected pet, service, and environment filters remain unchanged|The owner chooses whether to change dates, area, or service; no guaranteed replacement is implied">
+  <div class="top">No suitable sitters</div>
+  <div class="box"><span data-bind="pet"></span> / <span data-bind="service"></span><br><span data-bind="care-window"></span></div>
+  <div class="box muted" data-bind="environment"></div>
+  <p>No sitter in this example matches all the selected requirements. No request or payment has been made.</p>
+  <button class="btn pri" data-go="o-request">Edit dates, area, or care format</button>
+  <button class="btn" data-go="o-home">Return home</button>
+</section>
+
+<section class="scr" id="o-pending" data-title="O11 · Pending care request" data-tabs="owner" data-flow="Owner"
+ data-notes="M4: request sent means Pending sitter response, not confirmed care|The selected sitter receives the shared care instructions before deciding|Review as sitter is a prototype role-switch; a real owner waits for the response|Expiry preserves care details and offers another search; no automatic expiry duration is assumed">
+  <div class="top">Care request</div>
+  <div class="status" data-bind="booking-status"></div>
+  <div class="box"><span data-bind="sitter"></span> / <span data-bind="pet"></span><br><span data-bind="care-window"></span></div>
+  <div class="box muted" data-bind="instructions"></div>
+  <p>A request is not confirmed care. Sitter acceptance and successful payment are both required.</p>
+  <button class="btn pri" data-go="o-book" data-show="payable">Sitter accepted / review and pay</button>
+  <button class="btn" data-go="o-meet">Contact sitter</button>
+  <div class="demo-options"><button data-go="s-req" data-show="reviewable">Demo: review this request as the sitter</button><button data-action="expire" data-needs="expirable">Preview request expiry</button></div>
+</section>
+
+<section class="scr" id="o-outcome" data-title="O12 · Declined or expired request" data-tabs="owner" data-flow="Owner"
+ data-notes="M4: a decline or expiry is not a confirmed booking|These examples occur before a successful payment; no payment is taken|Starting another search retains the pet, service, and environment requirements but creates a new request">
+  <div class="top">Request not confirmed</div>
+  <div class="status" data-bind="booking-status"></div>
+  <p>No payment was taken for this request. Your care requirements are saved, but another sitter is not guaranteed.</p>
+  <div class="box"><span data-bind="pet"></span> / <span data-bind="service"></span><br><span data-bind="environment"></span></div>
+  <button class="btn pri" data-action="new-request">Review details &amp; search again</button>
+</section>
+
+<section class="scr" id="o-payment" data-title="O13 · Payment recovery" data-tabs="" data-flow="Owner"
+ data-notes="M4: a failed attempt and an unknown payment result are different states|A failed attempt can return to checkout while the request remains valid|An uncertain result must be checked before offering another payment, to avoid duplicate attempts|The outcome buttons simulate results; no real charge or payment-provider call is made">
+  <div class="top">Payment status</div>
+  <div class="status" data-bind="booking-status"></div>
+  <p data-show="failed-payment">The example payment failed. Correct the payment details before trying again; the request still needs successful payment.</p>
+  <p data-show="processing-payment">The result is not known yet. Check this attempt before trying another payment. Care is not confirmed yet.</p>
+  <button class="btn pri" data-go="o-book" data-show="failed-payment">Review payment details &amp; retry</button>
+  <div class="demo-options" data-show="processing-payment"><button data-action="payment-resolved">Demo: existing attempt succeeds</button><button data-action="payment-failed">Demo: existing attempt fails</button></div>
+</section>
+
+<section class="scr" id="o-complete" data-title="O14 · Completion, issues & review" data-tabs="owner" data-flow="Owner"
+ data-notes="M4: this is an example of the stage after scheduled care has ended|Confirming completion enables an optional review; submitting that review does not release payment|An unresolved service issue pauses payout and cannot be displayed as settled|Issue resolution and payout timing require an agreed policy; the demo does not define one">
+  <div class="top">Care completion</div>
+  <div class="status" data-bind="care-status"></div>
+  <div class="box"><span data-bind="pet"></span> / <span data-bind="service"></span><br><span data-bind="sitter"></span></div>
+  <button class="btn pri" data-action="complete-care" data-needs="can-complete">Confirm care was completed</button>
+  <button class="btn" data-action="report-issue" data-needs="can-report">Report a service issue</button>
+  <div class="status" data-show="care-issue">Issue under review. Payout is paused; the service is not settled.</div>
+  <div class="review-form" data-show="completed-care">
+    <label for="review-rating">Completed-booking review<select id="review-rating"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label>
+    <button class="btn" data-action="review">Save example review</button>
+    <div class="muted" data-bind="review-status" aria-live="polite"></div>
+  </div>
+  <button class="btn" data-go="s-payout">View sitter payout status</button>
+  <button class="btn" data-action="new-request">Request this sitter again / recheck dates</button>
+  <div class="demo-options" data-show="care-issue"><button data-action="resolve-issue">Demo: issue resolved after review</button></div>
+</section>
+
+<section class="scr" id="s-verification" data-title="S5 · Verification status" data-tabs="sitter" data-flow="Sitter"
+ data-notes="M4: Pending and Needs correction are not verified or bookable states|Correction keeps saved service details and permits resubmission|Approval is a simulated reviewer outcome, not a control the real sitter would have|ID approval alone does not establish care competence">
+  <div class="top">Profile verification</div>
+  <div class="status" data-bind="verification-status"></div>
+  <div class="box">Services, care experience, and availability are saved while verification is reviewed.</div>
+  <p data-show="needs-correction">Example correction: the submitted ID image is unreadable. Replace it and resubmit for review.</p>
+  <button class="btn pri" data-action="submit-verification" data-show="needs-correction">Resubmit for verification</button>
+  <button class="btn" data-go="s-dash">View dashboard</button>
+  <div class="demo-options"><button data-action="verification-correction">Preview correction needed</button><button data-action="verification-approved">Preview reviewer approval</button></div>
+</section>
+
+<section class="scr" id="s-payout" data-title="S6 · Earnings & payout" data-tabs="sitter" data-flow="Sitter"
+ data-notes="M4: estimated care earnings exclude the owner's service fee|Awaiting completion, Pending release, Transfer in progress, Paid, and Transfer failed are distinct states|An unresolved issue blocks release; a failed transfer is not money received|Review submission does not change payout status; demo controls illustrate possible transfer outcomes">
+  <div class="top">Earnings &amp; payout</div>
+  <div class="box">Estimated care earnings: <b data-bind="care-total"></b><br><span class="muted">Illustrative owner service fee is separate.</span></div>
+  <div class="status" data-bind="payout-status"></div>
+  <p class="muted">Payout timing, dispute handling, and any deductions still need policy validation. This is not a real transfer.</p>
+  <button class="btn" data-go="o-complete">View completion / issue status</button>
+  <div class="demo-options"><button data-action="start-payout" data-needs="releasable">Demo: start / retry transfer</button><button data-action="fail-payout" data-needs="transferring">Demo: transfer fails</button><button data-action="finish-payout" data-needs="transferring">Demo: transfer received</button></div>
 </section>
 
 <div class="tabs" id="t-owner"><span data-go="o-home">🏠<br>Home</span><span data-go="o-bookings">📅<br>Bookings</span><span data-go="o-meet">💬<br>Chat</span><span data-go="o-pet">🐶<br>Pets</span></div>
@@ -203,34 +328,185 @@ aside button.on{background:#222;color:#fff;border-color:#222}
 
 <div class="notes">
   <span class="tag" id="ntag"></span>
-  <h3 id="ntitle"></h3>
+  <h2 id="ntitle"></h2>
   <ul id="nlist"></ul>
-  <p class="hint">Flow: <b>Owner</b> O1 → O2 → O3 → O4 → O5 → O6 → O7 → O8. <b>Sitter</b> S1 → S2 → S3 → S4.</p>
+  <p class="hint">Main path: request details → results → sitter profile → pending request → sitter acceptance → payment → confirmation. Verification, recovery, and payout examples are available in the screen menu.</p>
 </div>
-</div>
+</main>
 
 <script>
 const screens=[...document.querySelectorAll('.scr')];
 const menu=document.getElementById('menu');
-let group='';
-screens.forEach(s=>{
-  if(s.dataset.flow!==group){group=s.dataset.flow;const h=document.createElement('h3');h.textContent=group+' flow';menu.appendChild(h);}
-  const b=document.createElement('button');b.textContent=s.dataset.title;b.dataset.go=s.id;b.dataset.menu='1';menu.appendChild(b);
+const screenSelect=document.getElementById('screen-select');
+const services={
+  boarding:{label:'Boarding',rate:110,unit:'day',units:'days'},
+  walking:{label:'Dog walking',rate:30,unit:'walk',units:'walks'},
+  home:{label:'Care at the owner\'s home',rate:90,unit:'day',units:'days'},
+  dropin:{label:'Drop-in visit',rate:40,unit:'visit',units:'visits'},
+  quiet:{label:'Quiet cat boarding',rate:110,unit:'day',units:'days'},
+  bird:{label:'Bird-safe boarding',rate:110,unit:'day',units:'days'}
+};
+const pets={
+  dog:{name:'Hector / Dog',services:['boarding','walking','home','dropin'],experience:'Dog-care experience',instructions:'Two meals daily; chicken allergy; regular walks; anxious at night. Owner and vet contacts shared privately.'},
+  cat:{name:'Luna / Cat',services:['dropin','home','quiet'],experience:'Cat-care experience',instructions:'Keep the familiar feeding and litter routine; quiet setting; avoid an unfamiliar caged environment. Owner and vet contacts shared privately.'},
+  bird:{name:'Rico / Cockatiel',services:['bird','home'],experience:'Bird-safe care experience',instructions:'Follow the feeding routine; no other animals in the boarding home; bird-safe handling and environment. Owner and vet contacts shared privately.'}
+};
+const state={pet:'dog',service:'boarding',sitter:'A',urgent:false,quiet:false,noOtherPets:false,booking:'draft',verification:'approved',care:'scheduled',payout:'waiting',review:false};
+const bookingLabels={draft:'Not requested',pending:'Pending sitter response',accepted:'Awaiting owner payment',failed:'Payment failed / booking not confirmed',processing:'Payment processing / result unknown',confirmed:'Booking confirmed',declined:'Request declined',expired:'Request expired'};
+const verificationLabels={pending:'Pending verification / not bookable',correction:'Needs correction / not bookable',approved:'Profile approved / bookable'};
+const payoutLabels={waiting:'Awaiting service completion',pending:'Pending release / not yet paid',processing:'Transfer in progress / not yet received',paid:'Paid / transfer received',failed:'Transfer failed / not paid'};
+
+for(const group of new Set(screens.map(s=>s.dataset.flow))){
+  const heading=document.createElement('h2');heading.textContent=group+' flow';menu.appendChild(heading);
+  const options=document.createElement('optgroup');options.label=group+' flow';screenSelect.appendChild(options);
+  screens.filter(s=>s.dataset.flow===group).forEach(s=>{
+    const button=document.createElement('button');button.textContent=s.dataset.title;button.dataset.preview=s.id;menu.appendChild(button);
+    options.appendChild(new Option(s.dataset.title,s.id));
+    s.setAttribute('aria-label',s.dataset.title);
+  });
+}
+document.querySelectorAll('[data-go]:not(button)').forEach(el=>{
+  el.setAttribute('role','button');el.tabIndex=0;
+  if(el.classList.contains('back'))el.setAttribute('aria-label','Back to '+document.getElementById(el.dataset.go).dataset.title);
 });
+
+function resetRequest(){
+  state.booking='draft';state.care='scheduled';state.payout='waiting';state.review=false;
+}
+function conditions(){
+  const completed=state.booking==='confirmed'&&state.care==='completed';
+  return {
+    'boarding-care':['boarding','quiet','bird'].includes(state.service),
+    'bird-boarding':state.pet==='bird'&&state.service==='bird',
+    'request-draft':state.booking==='draft',
+    'request-sent':state.booking!=='draft',
+    bookable:state.verification==='approved',
+    reviewable:state.verification==='approved'&&state.booking==='pending',
+    payable:['accepted','failed'].includes(state.booking),
+    expirable:['pending','accepted','failed'].includes(state.booking),
+    confirmed:state.booking==='confirmed',
+    'failed-payment':state.booking==='failed',
+    'processing-payment':state.booking==='processing',
+    'can-complete':state.booking==='confirmed'&&state.care==='scheduled',
+    'can-report':state.booking==='confirmed'&&state.care!=='issue'&&state.payout!=='paid',
+    'completed-care':completed,
+    'care-issue':state.care==='issue',
+    'needs-correction':state.verification==='correction',
+    releasable:completed&&['pending','failed'].includes(state.payout),
+    transferring:completed&&state.payout==='processing'
+  };
+}
+function render(){
+  const pet=pets[state.pet],service=services[state.service];
+  const available=conditions();
+  const rate=service.rate+(state.sitter==='B'?-10:0),care=rate*3,fee=Math.round(care*.1);
+  const environment=[state.quiet?'Quiet care setting required':null,available['boarding-care']&&state.noOtherPets?'No other animals in the sitter\'s home':null,state.pet==='bird'?'Bird-safe handling required':null].filter(Boolean).join('; ')||'Review the care setting before requesting.';
+  const values={
+    pet:pet.name,service:service.label,sitter:'Sitter '+state.sitter,
+    'care-window':state.urgent?'Example: tomorrow 09:00 to three days later at 09:00; 3 '+service.units:'Example: 12-15 Dec 2026; 3 '+service.units,
+    instructions:pet.instructions,experience:pet.experience,environment,
+    rate:rate+' RON / '+service.unit,'rate-a':service.rate+' RON / '+service.unit,'rate-b':(service.rate-10)+' RON / '+service.unit,
+    'care-total':care+' RON',fee:fee+' RON',total:(care+fee)+' RON',
+    'price-breakdown':'3 '+service.units+' x '+rate+' RON = '+care+' RON',
+    reviews:state.sitter==='B'?'New sitter / no completed-booking reviews yet.':'Example: 4.9 from 23 completed bookings; reviews relevant to '+pet.name.split(' / ')[1].toLowerCase()+' care.',
+    'booking-status':bookingLabels[state.booking],
+    'verification-status':verificationLabels[state.verification],
+    'care-status':state.care==='issue'?'Issue under review':state.care==='completed'?'Care completed':state.booking==='confirmed'?'Awaiting completion review':'No confirmed care to complete',
+    'payout-status':state.care==='issue'?'On hold / unresolved service issue':payoutLabels[state.payout],
+    'review-status':state.review?'Example review saved. Payout status has not changed.':'Optional: reviews are available only for completed care.'
+  };
+  document.querySelectorAll('[data-bind]').forEach(el=>{el.textContent=values[el.dataset.bind];});
+  document.querySelectorAll('[data-needs]').forEach(el=>{el.disabled=!available[el.dataset.needs];});
+  document.querySelectorAll('[data-show]').forEach(el=>{el.hidden=!available[el.dataset.show];});
+  document.getElementById('pet-choice').value=state.pet;
+  const choice=document.getElementById('service-choice');
+  choice.replaceChildren(...pet.services.map(key=>new Option(services[key].label,key)));
+  choice.value=state.service;
+  document.getElementById('urgent-care').checked=state.urgent;
+  document.getElementById('quiet-care').checked=state.quiet;
+  document.getElementById('no-other-pets').checked=state.noOtherPets;
+  document.getElementById('no-other-pets').disabled=state.pet==='bird';
+}
 function show(id){
-  const s=document.getElementById(id);if(!s)return;
+  const s=screens.find(screen=>screen.id===id)||screens[0];
+  render();
   screens.forEach(x=>x.classList.toggle('on',x===s));
-  document.querySelectorAll('aside button').forEach(b=>b.classList.toggle('on',b.dataset.go===id));
+  menu.querySelectorAll('button').forEach(b=>{b.classList.toggle('on',b.dataset.preview===s.id);if(b.dataset.preview===s.id)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
+  screenSelect.value=s.id;
   document.getElementById('t-owner').classList.toggle('on',s.dataset.tabs==='owner');
   document.getElementById('t-sitter').classList.toggle('on',s.dataset.tabs==='sitter');
   document.getElementById('ntag').textContent=s.dataset.flow+' flow';
   document.getElementById('ntitle').textContent=s.dataset.title;
-  document.getElementById('nlist').innerHTML=s.dataset.notes.split('|').map(n=>'<li>'+n+'</li>').join('');
+  document.getElementById('nlist').replaceChildren(...s.dataset.notes.split('|').map(note=>{const li=document.createElement('li');li.textContent=note;return li;}));
   s.scrollTop=0;
-  try{history.replaceState(null,'','#'+id)}catch(e){}
+  s.tabIndex=-1;
+  s.focus({preventScroll:true});
+  history.replaceState(null,'','#'+s.id);
 }
-document.addEventListener('click',e=>{const t=e.target.closest('[data-go]');if(t)show(t.dataset.go)});
-show((location.hash||'#o-home').slice(1));
+function preview(id){
+  resetRequest();
+  state.verification='approved';
+  if(['o-pending','s-req'].includes(id))state.booking='pending';
+  if(['o-book','s-done'].includes(id))state.booking='accepted';
+  if(id==='o-payment')state.booking='failed';
+  if(id==='o-outcome')state.booking='declined';
+  if(['o-confirm','o-complete','s-payout'].includes(id))state.booking='confirmed';
+  if(id==='s-payout'){state.care='completed';state.payout='pending';}
+  if(id==='s-verification')state.verification='pending';
+  show(id);
+}
+function act(action,el){
+  const allowed=conditions();
+  if(el.dataset.needs&&!allowed[el.dataset.needs])return;
+  switch(action){
+    case 'urgent':resetRequest();state.urgent=true;show('o-request');break;
+    case 'new-request':resetRequest();show('o-request');break;
+    case 'find':resetRequest();show('o-results');break;
+    case 'choose-sitter':state.sitter=el.dataset.sitter;show('o-sitter');break;
+    case 'send-request':resetRequest();state.booking='pending';show('o-pending');break;
+    case 'sample-request':resetRequest();state.booking='pending';show('s-req');break;
+    case 'accept':state.booking='accepted';show('s-done');break;
+    case 'decline':state.booking='declined';show('o-outcome');break;
+    case 'expire':state.booking='expired';show('o-outcome');break;
+    case 'pay':state.booking='confirmed';show('o-confirm');break;
+    case 'payment-failed':state.booking='failed';show('o-payment');break;
+    case 'payment-processing':state.booking='processing';show('o-payment');break;
+    case 'payment-resolved':state.booking='confirmed';show('o-confirm');break;
+    case 'open-status':show({draft:'o-request',pending:'o-pending',accepted:'o-book',failed:'o-payment',processing:'o-payment',confirmed:'o-confirm',declined:'o-outcome',expired:'o-outcome'}[state.booking]);break;
+    case 'submit-verification':state.verification='pending';show('s-verification');break;
+    case 'verification-correction':state.verification='correction';show('s-verification');break;
+    case 'verification-approved':state.verification='approved';show('s-dash');break;
+    case 'preview-completed':state.booking='confirmed';state.care='completed';state.payout='pending';state.review=false;show('o-complete');break;
+    case 'complete-care':state.care='completed';state.payout='pending';render();break;
+    case 'report-issue':state.care='issue';state.payout='waiting';render();break;
+    case 'resolve-issue':state.care='completed';state.payout='pending';render();break;
+    case 'review':if(allowed['completed-care']){state.review=true;render();}break;
+    case 'start-payout':state.payout='processing';render();break;
+    case 'fail-payout':state.payout='failed';render();break;
+    case 'finish-payout':state.payout='paid';render();break;
+  }
+}
+document.addEventListener('click',event=>{
+  const target=event.target.closest('[data-preview],[data-action],[data-go]');
+  if(!target||target.disabled)return;
+  if(target.dataset.preview)preview(target.dataset.preview);
+  else if(target.dataset.action)act(target.dataset.action,target);
+  else show(target.dataset.go);
+});
+document.addEventListener('keydown',event=>{
+  if(event.target.matches('[role="button"]')&&['Enter',' '].includes(event.key)){event.preventDefault();event.target.click();}
+});
+document.getElementById('pet-choice').addEventListener('change',event=>{
+  resetRequest();state.pet=event.target.value;state.service=pets[state.pet].services[0];
+  state.quiet=state.pet==='cat';state.noOtherPets=state.pet==='bird';render();
+});
+document.getElementById('service-choice').addEventListener('change',event=>{resetRequest();state.service=event.target.value;render();});
+for(const [id,key] of [['urgent-care','urgent'],['quiet-care','quiet'],['no-other-pets','noOtherPets']]){
+  document.getElementById(id).addEventListener('change',event=>{resetRequest();state[key]=event.target.checked;render();});
+}
+screenSelect.addEventListener('change',event=>preview(event.target.value));
+window.addEventListener('hashchange',()=>preview(location.hash.slice(1)));
+preview((location.hash||'#o-home').slice(1));
 </script>
 </body>
 </html>

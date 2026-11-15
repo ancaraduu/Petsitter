@@ -9,7 +9,7 @@ The project has no build step or runtime dependencies.
 
 ## Content
 
-- **M1 - 19 October 2026:** project description, team, customer segments,
+- **M1 - 19 October 2026:** project description, customer segments,
   competition hypotheses, planned metrics, costs, and revenue.
 - **M2 - 2 November 2026:** customer discovery, research questions, supplied
   evidence, findings, product changes, and the next validation experiment.
@@ -20,7 +20,10 @@ The project has no build step or runtime dependencies.
   insights; illustrated owner/sitter user types, a research-informed primary
   persona, ten prioritized user stories with acceptance criteria, and four
   use cases with screen flows and exception paths. The UX material is a
-  design draft, not tested app behavior.
+  design draft, not tested app behavior. The M4 revision log links findings
+  to the updated M3 wireframe screens.
+
+The team photos, roles, and contacts stay visible above the milestone list.
 
 The dates above are assignment deadlines, not claims about submission dates.
 Research screenshots remain in Romanian, with English captions and summaries.
@@ -30,7 +33,8 @@ The M4 persona is explicitly fictional: its needs are informed by M2, while
 its biographical details and product interaction assumptions await validation.
 M4 links back to research evidence and separates proposed usability tasks from
 completed research. M3 links to the clickable wireframe and landing page;
-the M4 UX flows document proposed requirements for further iteration.
+the M4 UX flows informed the revised wireframe. Usability testing and
+operational policy decisions remain pending.
 
 ## Preview
 
@@ -43,6 +47,15 @@ M4 uses five topic tabs (users, interviews, stories, flows, and next steps),
 with expandable persona, research notes, stories, and use cases. Direct
 links select the relevant tab and open its details. All topics remain
 available without JavaScript and are included when printing.
+
+`my_wireframes.html` is a JavaScript-driven, low-fidelity prototype. Pet and
+service choices carry through the example booking, pricing, and care screens.
+Follow the main flow to request care, accept as the sitter, then pay as the
+owner. The screen menu explicitly previews sample states; its shortcuts are
+not production authorization or business logic. Demo controls cover failed
+or uncertain payments, declined/expired requests, verification corrections,
+care issues, and payout outcomes. Reloading resets the simulation; no
+backend, real verification, payment, or booking is performed.
 
 ## Publish
 
@@ -61,7 +74,8 @@ deployed.
 
 - `index.html`: all milestone content, captions, navigation, and M3/M4 links.
 - `landing.html` / `landing.css`: customer-facing landing page and responsive styles.
-- `my_wireframes.html`: clickable, low-fidelity application flow supplied for M3.
+- `my_wireframes.html`: M3 low-fidelity owner/sitter flows, revised after M4
+  with species-specific care and explicit request, payment, and payout states.
 - `styles.css`: Fiki responsive layout, colors, typography, and print styles.
 - `script.js`: milestone link handling, print expansion, reading progress,
   active navigation, and the evidence viewer.
