@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="PetSitter project: project definition, customer discovery, research evidence, and product design.">
+    <meta name="description" content="PetSitter Startup Engineering project: customer discovery, interviews, research evidence, product design, user personas, stories, and UX flows.">
     <meta name="theme-color" content="#faf8f7">
     <meta property="og:title" content="PetSitter | Project Fiki">
     <meta property="og:description" content="Project documentation, customer research, and milestone deliverables for PetSitter, a local pet-care marketplace.">
@@ -39,7 +39,7 @@
           <a href="#m1"><span>M1</span> Project</a>
           <a href="#m2"><span>M2</span> Discovery</a>
           <a href="#m3"><span>M3</span> Design</a>
-          <a href="#m4"><span>M4</span> Interviews</a>
+          <a href="#m4"><span>M4</span> Users</a>
         </nav>
         <a class="team-link" href="#team">Team &amp; roles</a>
       </div>
@@ -83,6 +83,7 @@
       <section class="journey wrap" id="milestones" aria-labelledby="journey-title">
         <div class="section-heading compact">
           <div><p class="eyebrow">Project progress</p><h2 id="journey-title">Milestones</h2></div>
+          <span class="quiet-label">Select a milestone to open its content.</span>
         </div>
         <div class="milestone-grid">
           <a class="milestone-card pink" href="#m1">
@@ -100,19 +101,25 @@
             <h3>Wireframes &amp; landing page</h3><p>Application structure, user flows, and the customer-facing page.</p>
             <div class="card-bottom"><span>Due <time datetime="2026-11-09">09 Nov 2026</time></span><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></div>
           </a>
-          <a class="milestone-card pink" href="#m4">
-            <div class="card-top"><span class="milestone-number">04</span><span class="badge">In progress</span></div>
-            <h3>User interviews</h3><p>Three face-to-face interviews with potential users and evidence-based product insights.</p>
+          <a class="milestone-card mint" href="#m4">
+            <div class="card-top"><span class="milestone-number">04</span><span class="badge">Research &amp; UX</span></div>
+            <h3>Users &amp; experience</h3><p>Recorded interviews, user types, a primary persona, user stories, and owner and sitter flows.</p>
             <div class="card-bottom"><span>Due <time datetime="2026-11-16">16 Nov 2026</time></span><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></div>
           </a>
         </div>
       </section>
 
       <section class="milestone-section wrap" id="m1" data-section aria-labelledby="m1-title">
-        <header class="milestone-heading">
-          <span class="chapter-number pink">01</span>
-          <div><p class="eyebrow">M1 / Fiki &amp; project description</p><h2 id="m1-title">Project overview</h2></div>
-        </header>
+        <details class="milestone-disclosure">
+          <summary class="milestone-ribbon" aria-labelledby="m1-title">
+            <h2 class="milestone-heading">
+              <span class="chapter-number pink">01</span>
+              <span class="milestone-label"><span class="eyebrow">M1 / Fiki &amp; project description</span><span id="m1-title">Project overview</span></span>
+              <span class="deadline">Milestone deadline<time datetime="2026-10-19">19 October 2026</time></span>
+              <span class="milestone-toggle" aria-hidden="true"></span>
+            </h2>
+          </summary>
+          <div class="milestone-content">
         <div class="section-block" id="team">
           <div class="block-heading"><div><p class="eyebrow">Team</p><h3>Members &amp; responsibilities</h3></div></div>
           <div class="team-grid">
@@ -180,13 +187,21 @@
           <article class="panel"><p class="eyebrow">Business model</p><h3>Cost structure</h3><ul class="pretty-list"><li>App development and maintenance</li><li>Cloud hosting, maps, and chat</li><li>Payment processing fees</li><li>Marketing and sitter acquisition</li><li>Identity verification and insurance</li></ul></article>
           <article class="panel"><p class="eyebrow">Business model</p><h3>Revenue streams</h3><ul class="pretty-list"><li>Commission per booking through a service fee</li><li>Premium sitter profiles and featured listings</li><li>An optional owner subscription for priority urgent matching</li></ul><p class="small-note">Business model hypotheses; pricing and paid demand still need validation.</p></article>
         </div>
+          </div>
+        </details>
       </section>
 
       <section class="milestone-section wrap" id="m2" data-section aria-labelledby="m2-title">
-        <header class="milestone-heading">
-          <span class="chapter-number lilac">02</span>
-          <div><p class="eyebrow">M2 / Validation 1: the idea</p><h2 id="m2-title">Customer discovery</h2></div>
-        </header>
+        <details class="milestone-disclosure">
+          <summary class="milestone-ribbon" aria-labelledby="m2-title">
+            <h2 class="milestone-heading">
+              <span class="chapter-number lilac">02</span>
+              <span class="milestone-label"><span class="eyebrow">M2 / Validation 1: the idea</span><span id="m2-title">Customer discovery</span></span>
+              <span class="deadline">Milestone deadline<time datetime="2026-11-02">02 November 2026</time></span>
+              <span class="milestone-toggle" aria-hidden="true"></span>
+            </h2>
+          </summary>
+          <div class="milestone-content">
         <div class="research-intro"><p>Before building the solution, we needed to understand the problem. Our customer discovery explored how people find pet care, where that process breaks down, and what would make them trust someone new.</p><p class="small-note">Research team: Stoica Ana-Florina &amp; Anca Radu.</p></div>
 
         <article class="origin-story section-block">
@@ -337,15 +352,61 @@
         <article class="validation-card section-block">
           <p class="eyebrow">Next stage</p><h3>Customer validation readiness</h3><p class="validation-answer">Ready for a limited pilot</p><p>Our discovery suggests a recurring, stressful problem and interest in paying for reliable care. The next step is a small MVP: a separate landing page and a manually matched pilot with verified sitters. Paid demand has not yet been demonstrated.</p><p>We need to observe whether owners actually request care, accept a price, and complete a booking, and whether sitters can deliver reliably. Those behaviors will test the business model more directly than survey enthusiasm.</p><div class="validation-tags"><span>Booking intent</span><span>Completed payments</span><span>Owner &amp; sitter feedback</span></div>
         </article>
+          </div>
+        </details>
+      </section>
+
+      <section class="milestone-section wrap" id="m3" data-section aria-labelledby="m3-title">
+        <details class="milestone-disclosure">
+          <summary class="milestone-ribbon" aria-labelledby="m3-title">
+            <h2 class="milestone-heading">
+              <span class="chapter-number butter">03</span>
+              <span class="milestone-label"><span class="eyebrow">M3 / Wireframe &amp; landing page</span><span id="m3-title">Product design</span></span>
+              <span class="deadline">Milestone deadline<time datetime="2026-11-09">09 November 2026</time></span>
+              <span class="milestone-toggle" aria-hidden="true"></span>
+            </h2>
+          </summary>
+          <div class="milestone-content">
+        <div class="two-column section-block">
+          <article class="deliverable-card">
+            <div class="deliverable-icon lilac" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="12" y="5" width="24" height="38" rx="5"/><path d="M19 11h10M18 17h12v10H18zM18 32h12M21 37h6"/></svg></div>
+            <span class="mini-label">Deliverable 01</span><h3>Application wireframes</h3><p>The product's screens, functionality, and connections between views, including the behavior of buttons and navigation.</p><ul class="pretty-list"><li>Interactive owner flow from care request to booking</li><li>Interactive sitter flow from request review to acceptance</li><li>Screen notes explain navigation and key interactions</li></ul><a class="button button-primary" href="my_wireframes.html">Open wireframe <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+          </article>
+          <article class="deliverable-card">
+            <div class="deliverable-icon pink" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="9" width="38" height="30" rx="4"/><path d="M5 17h38M10 13h2m3 0h2m3 0h2M12 24h15M12 29h10M12 34h7"/><path d="m33 26 5 4-5 4"/></svg></div>
+            <span class="mini-label">Deliverable 02</span><h3>Product landing page</h3><p>The separate, customer-facing landing page introduces the value proposition and invites potential owners or sitters to express interest.</p><ul class="pretty-list"><li>Clear owner and sitter value propositions</li><li>Explains the three-step path from need to care</li><li>Early-access CTA for the local pilot</li></ul><a class="button button-primary" href="landing.html">Visit landing page <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+          </article>
+        </div>
+          </div>
+        </details>
       </section>
 
       <section class="milestone-section wrap" id="m4" data-section aria-labelledby="m4-title">
-        <header class="milestone-heading">
-          <span class="chapter-number pink">04</span>
-          <div><p class="eyebrow">M4 / Face-to-face interviews</p><h2 id="m4-title">User interviews</h2></div>
-          <p class="deadline">Milestone deadline<time datetime="2026-11-16">16 November 2026</time></p>
-        </header>
-        <div class="section-block interview-section">
+        <details class="milestone-disclosure">
+          <summary class="milestone-ribbon" aria-labelledby="m4-title">
+            <h2 class="milestone-heading">
+              <span class="chapter-number mint">04</span>
+              <span class="milestone-label"><span class="eyebrow">M4 / User research &amp; UX</span><span id="m4-title">Users &amp; experience</span></span>
+              <span class="deadline">Milestone deadline<time datetime="2026-11-16">16 November 2026</time></span>
+              <span class="milestone-toggle" aria-hidden="true"></span>
+            </h2>
+          </summary>
+          <div class="milestone-content">
+        <div class="research-intro">
+          <p>This milestone combines three recorded owner interviews with a research-informed primary persona, user stories, and proposed product flows. The focus is helping owners find appropriate care without trading trust for speed, while giving sitters enough information to accept a booking responsibly.</p>
+          <p class="small-note"><strong>Design draft.</strong> The persona is a fictional composite informed by M2, not an actual participant. The stories and flows are proposals; they have not yet been tested with users or implemented in the app.</p>
+        </div>
+        <nav class="section-nav" aria-label="M4 contents">
+          <a href="#m4-interviews">Interviews</a>
+          <a href="#m4-users">User types</a>
+          <a href="#m4-persona">Persona</a>
+          <a href="#m4-research">Research basis</a>
+          <a href="#m4-stories">User stories</a>
+          <a href="#m4-flows">Use cases &amp; flows</a>
+          <a href="#m4-validation">Validation plan</a>
+        </nav>
+
+        <div class="section-block interview-section" id="m4-interviews">
           <div class="block-heading"><div><p class="eyebrow">Required milestone evidence</p><h3>Three face-to-face interviews</h3></div><span class="quiet-label">Recordings and discussion summaries</span></div>
           <p class="interview-intro">We conducted three face-to-face problem interviews with people from the primary customer segment: pet owners who need reliable care when work, travel, or unexpected plans take them away from home. The recordings below are selected extracts from the actual interviews, chosen because they contain the clearest and most relevant insights for shaping PetSitter. Each extract is paired with the participant profile, context, and product implication it surfaced.</p>
           <div class="interview-grid">
@@ -363,23 +424,229 @@
             </article>
           </div>
         </div>
-      </section>
 
-      <section class="milestone-section wrap" id="m3" data-section aria-labelledby="m3-title">
-        <header class="milestone-heading">
-          <span class="chapter-number butter">03</span>
-          <div><p class="eyebrow">M3 / Wireframe &amp; landing page</p><h2 id="m3-title">Product design</h2></div>
-        </header>
-        <div class="two-column section-block">
-          <article class="deliverable-card">
-            <div class="deliverable-icon lilac" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="12" y="5" width="24" height="38" rx="5"/><path d="M19 11h10M18 17h12v10H18zM18 32h12M21 37h6"/></svg></div>
-            <span class="mini-label">Deliverable 01</span><h3>Application wireframes</h3><p>The product's screens, functionality, and connections between views, including the behavior of buttons and navigation.</p><ul class="pretty-list"><li>Interactive owner flow from care request to booking</li><li>Interactive sitter flow from request review to acceptance</li><li>Screen notes explain navigation and key interactions</li></ul><a class="button button-primary" href="my_wireframes.html">Open wireframe <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
-          </article>
-          <article class="deliverable-card">
-            <div class="deliverable-icon pink" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="9" width="38" height="30" rx="4"/><path d="M5 17h38M10 13h2m3 0h2m3 0h2M12 24h15M12 29h10M12 34h7"/><path d="m33 26 5 4-5 4"/></svg></div>
-            <span class="mini-label">Deliverable 02</span><h3>Product landing page</h3><p>The separate, customer-facing landing page introduces the value proposition and invites potential owners or sitters to express interest.</p><ul class="pretty-list"><li>Clear owner and sitter value propositions</li><li>Explains the three-step path from need to care</li><li>Early-access CTA for the local pilot</li></ul><a class="button button-primary" href="landing.html">Visit landing page <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+        <div class="section-block" id="m4-users">
+          <div class="block-heading"><div><p class="eyebrow">Marketplace roles</p><h3>User types</h3></div></div>
+          <div class="two-column user-type-grid">
+            <article class="user-type-card">
+              <img src="assets/user-owner.svg" alt="Illustration of a pet owner using a phone beside their dog." width="160" height="160" loading="lazy">
+              <div><span class="mini-label">Demand side</span><h4>Pet owner</h4><p>Finds suitable care, checks sitter profiles, shares care instructions, and manages bookings and payments.</p></div>
+            </article>
+            <article class="user-type-card">
+              <img src="assets/user-sitter.svg" alt="Illustration of a pet sitter walking a dog, with an availability calendar." width="160" height="160" loading="lazy">
+              <div><span class="mini-label">Supply side</span><h4>Pet sitter</h4><p>Sets services and availability, reviews care requests, looks after pets, and tracks completed bookings and payouts.</p></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="section-block" id="m4-persona">
+          <div class="block-heading"><div><p class="eyebrow">Primary persona</p><h3>The time-constrained pet owner</h3></div><span class="quiet-label">Fictional composite / not an interview profile</span></div>
+          <article class="persona-card" aria-labelledby="persona-name">
+            <div class="persona-profile">
+              <img class="persona-illustration" src="assets/user-owner.svg" alt="" width="160" height="160" loading="lazy">
+              <p class="mini-label">Pet owner</p>
+              <h4 id="persona-name">Andreea Ionescu</h4>
+              <p class="persona-summary">Works full time and needs dependable care when work or travel disrupts her usual arrangements.</p>
+              <dl class="persona-facts">
+                <div><dt>Age &amp; location</dt><dd>32 / Bucharest</dd></div>
+                <div><dt>Occupation</dt><dd>Project coordinator</dd></div>
+                <div><dt>Pet</dt><dd>Milo, a dog with a regular walking and feeding routine</dd></div>
+                <div><dt>Digital habits</dt><dd>Uses her phone for messaging, booking, and payments</dd></div>
+                <div><dt>Budget reference</dt><dd>100-150 RON per day for care, subject to the service and full price</dd></div>
+              </dl>
+              <p class="small-note">Name, age, city, job, pet, and digital habits are scenario assumptions. The budget uses the most-selected M2 survey range, not a validated product price.</p>
+            </div>
+            <div class="persona-detail">
+              <div class="persona-quadrants">
+                <section aria-labelledby="persona-goals"><h5 id="persona-goals">Goals</h5><ul class="pretty-list"><li>Arrange care in time without canceling work or travel.</li><li>Know who will care for Milo and whether they can follow his routine.</li><li>Understand the total cost before committing.</li></ul></section>
+                <section aria-labelledby="persona-frustrations"><h5 id="persona-frustrations">Frustrations</h5><ul class="pretty-list"><li>Friends and family are not always available.</li><li>Social-media replies do not establish trust or confirm availability.</li><li>Contacting several people and repeating care details takes time.</li></ul></section>
+                <section aria-labelledby="persona-behaviors"><h5 id="persona-behaviors">Current behavior</h5><ul class="pretty-list"><li>Starts with people she knows, then searches local groups.</li><li>Checks a sitter's experience and reviews before making contact.</li><li>Needs a clear answer, not just a list of profiles.</li></ul></section>
+                <section aria-labelledby="persona-needs"><h5 id="persona-needs">UX needs</h5><ul class="pretty-list"><li>Search by dates, area, pet type, and service.</li><li>Visible verification, care experience, and review history.</li><li>Reusable care instructions and clear booking and payment states.</li></ul></section>
+              </div>
+              <div class="persona-scenario">
+                <span class="mini-label">Example scenario</span>
+                <p>Andreea learns that she must leave Bucharest the next morning for a two-day work trip. Her usual family contact is unavailable. She needs a sitter who can provide care at her home, discuss Milo's routine, and confirm the booking before she leaves.</p>
+                <p><strong>Successful outcome:</strong> an accepted, paid booking with agreed care instructions and a visible contact route. If no suitable sitter is available, she receives a clear answer early enough to arrange an alternative.</p>
+              </div>
+            </div>
           </article>
         </div>
+
+        <div class="section-block" id="m4-research">
+          <div class="block-heading"><div><p class="eyebrow">From discovery to design</p><h3>Research basis &amp; assumptions</h3></div></div>
+          <p class="section-intro">We prioritize the owner persona because M2 contains 41 owner survey responses. Sitter needs are included in the stories and flows, but rely on five team-reported conversations with limited attached evidence. The survey supports the needs below; it does not prove that they all describe the same individual.</p>
+          <div class="research-links">
+            <article><span class="mini-label">Availability</span><h4>61% struggle with short notice</h4><p>Put dates and urgent availability in the search flow. Show no-match and declined-request states rather than implying guaranteed care.</p><a href="#result-challenges">M2: care challenges</a><span class="research-map">US-01, US-06 / UC-01, UC-02</span></article>
+            <article><span class="mini-label">Trust</span><h4>43.9% distrust unfamiliar sitters</h4><p>Make profile verification and genuine reviews easy to inspect. Offer a conversation before booking without implying an ID check proves care expertise.</p><a href="#result-challenges">M2: trust concerns</a><span class="research-map">US-02, US-04 / UC-01</span></article>
+            <article><span class="mini-label">Care requirements</span><h4>39% worry about emergencies</h4><p>Include routines, allergies, special needs, and an emergency contact in a pet profile shared with the selected sitter.</p><a href="#result-challenges">M2: emergency concerns</a><span class="research-map">US-03, US-09 / UC-01, UC-04</span></article>
+            <article><span class="mini-label">Price</span><h4>53.7% selected 100-150 RON/day</h4><p>Show the full booking total and fee breakdown before payment. Test actual booking intent separately from stated budget.</p><a href="#result-budget">M2: daily budgets</a><span class="research-map">US-05 / UC-01</span></article>
+          </div>
+          <p class="small-note">Further context: <a href="#result-alternatives">85.4% currently rely on friends or family</a>, and <a href="#result-frequency">78% report frequent travel or time away</a>. Search behavior, device use, and the proposed interaction sequence still need direct UX testing.</p>
+        </div>
+
+        <div class="section-block" id="m4-stories">
+          <div class="block-heading"><div><p class="eyebrow">Proposed requirements</p><h3>User stories</h3></div><span class="quiet-label">Must = core booking flow<br>Should = subsequent iteration</span></div>
+          <p class="section-intro">Priorities are our design proposal, not a ranking selected by survey respondents. Each story includes testable acceptance criteria and links to the relevant use case.</p>
+          <div class="story-grid">
+            <article class="user-story" id="us-01">
+              <div class="story-meta"><span>US-01 / Owner</span><span class="badge">Must</span></div>
+              <h4>Find appropriate care</h4>
+              <p>As a pet owner, I want to filter sitters by location, dates, pet type, and service so that I can find someone who fits my care needs.</p>
+              <details class="story-criteria"><summary>Acceptance criteria <span class="details-toggle" aria-hidden="true">+</span></summary><ul class="pretty-list"><li>Results reflect the selected criteria and show availability and a price basis.</li><li>If there are no matches, the app explains this and offers editable filters without silently changing dates or location.</li></ul></details>
+              <p class="story-links">Use cases: <a href="#uc-01">UC-01</a>, <a href="#uc-02">UC-02</a> / Basis: <a href="#result-challenges">short-notice difficulty</a></p>
+            </article>
+            <article class="user-story" id="us-02">
+              <div class="story-meta"><span>US-02 / Owner</span><span class="badge">Must</span></div>
+              <h4>Assess a sitter's suitability</h4>
+              <p>As a pet owner, I want to review a sitter's identity-check status, experience, services, and reviews so that I can make an informed choice.</p>
+              <details class="story-criteria"><summary>Acceptance criteria <span class="details-toggle" aria-hidden="true">+</span></summary><ul class="pretty-list"><li>The profile explains what verification covers and clearly distinguishes verified status from review ratings.</li><li>Only completed-booking reviews contribute to the rating; a new sitter is labeled as having no reviews rather than given a default score.</li></ul></details>
+              <p class="story-links">Use case: <a href="#uc-01">UC-01</a> / Basis: <a href="#result-challenges">trust concerns</a></p>
+            </article>
+            <article class="user-story" id="us-03">
+              <div class="story-meta"><span>US-03 / Owner</span><span class="badge">Must</span></div>
+              <h4>Share care instructions</h4>
+              <p>As a pet owner, I want to save my pet's routine, allergies, special needs, and emergency contact so that the selected sitter has the information needed for care.</p>
+              <details class="story-criteria"><summary>Acceptance criteria <span class="details-toggle" aria-hidden="true">+</span></summary><ul class="pretty-list"><li>The owner can save and review the selected pet's care details before sending a request.</li><li>The app identifies which sitter will receive those details; private care information is not displayed on public search results.</li></ul></details>
+              <p class="story-links">Use cases: <a href="#uc-01">UC-01</a>, <a href="#uc-04">UC-04</a> / Basis: <a href="#result-challenges">emergency concerns</a></p>
+            </article>
+            <article class="user-story" id="us-04">
+              <div class="story-meta"><span>US-04 / Owner</span><span class="badge">Should</span></div>
+              <h4>Discuss care before committing</h4>
+              <p>As a pet owner, I want to message a sitter and arrange a short meet-and-greet so that we can check compatibility before the first booking.</p>
+              <details class="story-criteria"><summary>Acceptance criteria <span class="details-toggle" aria-hidden="true">+</span></summary><ul class="pretty-list"><li>The profile provides a contact route and an optional 15-minute video or in-person introduction.</li><li>Sending a message or arranging an introduction does not mark the care booking as confirmed.</li></ul></details>
+              <p class="story-links">Use case: <a href="#uc-01">UC-01</a> / Basis: <a href="#result-challenges">trust concerns</a>; meeting format is a design proposal</p>
+            </article>
+            <article class="user-story" id="us-05">
+              <div class="story-meta"><span>US-05 / Owner</span><span class="badge">Must</span></div>
+              <h4>Review and pay the full price</h4>
+              <p>As a pet owner, I want to review the complete booking cost and pay securely so that I know what I am committing to.</p>
+              <details class="story-criteria"><summary>Acceptance criteria <span class="details-toggle" aria-hidden="true">+</span></summary><ul class="pretty-list"><li>Checkout shows the sitter, dates, service, total including fees, and applicable cancellation terms before payment.</li><li>A booking is confirmed only after sitter acceptance and successful payment; failed or uncertain payment has an explicit recovery state.</li></ul></details>
+              <p class="story-links">Use case: <a href="#uc-01">UC-01</a> / Basis: <a href="#result-budget">budget findings</a> and <a href="#m1">planned payment feature</a></p>
+            </article>
+            <article class="user-story" id="us-06">
+              <div class="story-meta"><span>US-06 / Owner</span><span class="badge">Must</span></div>
+              <h4>Know whether care is arranged</h4>
+              <p>As a pet owner, I want clear request and booking statuses so that I can distinguish confirmed care from a request that still needs action.</p>
+              <details class="story-criteria"><summary>Acceptance criteria <span class="details-toggle" aria-hidden="true">+</span></summary><ul class="pretty-list"><li>The booking screen distinguishes pending, awaiting payment, confirmed, declined, expired, and canceled states.</li><li>A decline, expiry, or cancellation explains the next step and preserves care details when returning to search; an in-app record remains available if a notification is missed.</li></ul></details>
+              <p class="story-links">Use cases: <a href="#uc-01">UC-01</a>, <a href="#uc-02">UC-02</a>, <a href="#uc-04">UC-04</a> / Basis: <a href="#result-plans">disrupted plans</a></p>
+            </article>
+            <article class="user-story" id="us-07">
+              <div class="story-meta"><span>US-07 / Owner</span><span class="badge">Should</span></div>
+              <h4>Review care and book again</h4>
+              <p>As a returning pet owner, I want to review a completed service and request the same sitter again so that I can reuse a care arrangement that worked.</p>
+              <details class="story-criteria"><summary>Acceptance criteria <span class="details-toggle" aria-hidden="true">+</span></summary><ul class="pretty-list"><li>A review is linked to a completed booking and cannot be submitted for a pending or canceled service.</li><li>Rebooking starts a new request with current dates, availability, and pricing; it does not automatically charge or confirm.</li></ul></details>
+              <p class="story-links">Use case: <a href="#uc-04">UC-04</a> / Basis: <a href="#result-frequency">recurring care need</a>; rebooking is a design proposal</p>
+            </article>
+            <article class="user-story" id="us-08">
+              <div class="story-meta"><span>US-08 / Sitter</span><span class="badge">Must</span></div>
+              <h4>Publish an accurate care offer</h4>
+              <p>As a pet sitter, I want to complete verification and set my services, prices, pet preferences, and availability so that I receive appropriate requests.</p>
+              <details class="story-criteria"><summary>Acceptance criteria <span class="details-toggle" aria-hidden="true">+</span></summary><ul class="pretty-list"><li>The sitter can see draft, pending-verification, approved, or needs-correction status and the next required action.</li><li>A profile is bookable only after approval and required information is complete; unavailable slots are excluded from matching results.</li></ul></details>
+              <p class="story-links">Use case: <a href="#uc-03">UC-03</a> / Basis: <a href="#m2">M2 verification decision</a></p>
+            </article>
+            <article class="user-story" id="us-09">
+              <div class="story-meta"><span>US-09 / Sitter</span><span class="badge">Must</span></div>
+              <h4>Accept only suitable requests</h4>
+              <p>As a pet sitter, I want to inspect the care requirements, dates, and expected earnings before accepting so that I can decide whether I can provide the service.</p>
+              <details class="story-criteria"><summary>Acceptance criteria <span class="details-toggle" aria-hidden="true">+</span></summary><ul class="pretty-list"><li>The request includes the service, selected pet's shared care details, dates, payout estimate, and response deadline.</li><li>The sitter can accept or decline; the system rechecks availability before acceptance and prevents overlapping confirmed bookings.</li></ul></details>
+              <p class="story-links">Use cases: <a href="#uc-01">UC-01</a>, <a href="#uc-04">UC-04</a> / Basis: marketplace design assumption</p>
+            </article>
+            <article class="user-story" id="us-10">
+              <div class="story-meta"><span>US-10 / Sitter</span><span class="badge">Must</span></div>
+              <h4>Track service completion and payout</h4>
+              <p>As a pet sitter, I want to see the service and payout status so that I know whether payment is pending, released, or requires action.</p>
+              <details class="story-criteria"><summary>Acceptance criteria <span class="details-toggle" aria-hidden="true">+</span></summary><ul class="pretty-list"><li>Booking details distinguish estimated earnings, funds awaiting release, a payout in progress, and a completed payout.</li><li>An unresolved service issue or transfer failure is shown explicitly; starting a payout is not displayed as money already received.</li></ul></details>
+              <p class="story-links">Use case: <a href="#uc-04">UC-04</a> / Basis: <a href="#evidence-note-title">team-reported sitter payment concerns</a></p>
+            </article>
+          </div>
+        </div>
+
+        <div class="section-block" id="m4-flows">
+          <div class="block-heading"><div><p class="eyebrow">Interaction design</p><h3>Use cases &amp; user flows</h3></div><span class="quiet-label">Proposed screens and transitions / not a live booking interface</span></div>
+          <p class="section-intro">Each numbered sequence shows the main path, followed by its decision points and recovery paths. Screen names describe the intended app; these diagrams do not replace the M3 wireframes.</p>
+          <div class="use-case-list">
+            <article class="use-case" id="uc-01" aria-labelledby="uc-01-title">
+              <header class="use-case-heading"><span class="role-tag">UC-01 / Owner + sitter</span><h4 id="uc-01-title">Arrange and confirm care</h4><p>Goal: turn a care need into an agreed, paid booking.</p></header>
+              <dl class="use-case-context">
+                <div><dt>Trigger</dt><dd>The owner needs care for specific dates.</dd></div>
+                <div><dt>Preconditions</dt><dd>Search criteria are defined. The owner signs in and selects or creates a pet profile before sending a request; the selected sitter is verified.</dd></div>
+                <div><dt>Success</dt><dd>The sitter has accepted, payment has succeeded, and both parties see the same confirmed booking.</dd></div>
+              </dl>
+              <ol class="flow-steps" aria-label="Main booking flow">
+                <li><span class="flow-screen">Search</span><strong>Set the care need</strong><p>Choose location, dates, pet type, and service. Select Search.</p></li>
+                <li><span class="flow-screen">Results</span><strong>Compare sitters</strong><p>Review matching availability and price. Open a sitter profile.</p></li>
+                <li><span class="flow-screen">Sitter profile</span><strong>Check suitability</strong><p>Read verification and reviews. Optionally message or arrange a meet-and-greet.</p></li>
+                <li><span class="flow-screen">Request details</span><strong>Send a request</strong><p>Sign in if needed, select the pet, review shared instructions, and submit. Status: Pending.</p></li>
+                <li><span class="flow-screen">Sitter request</span><strong>Accept the care</strong><p>The sitter checks requirements and earnings. Acceptance triggers an availability recheck. Status: Awaiting payment.</p></li>
+                <li><span class="flow-screen">Checkout &amp; booking</span><strong>Pay and confirm</strong><p>The owner reviews the full total and terms, then pays. Revalidate availability; successful payment confirms the booking for both parties.</p></li>
+              </ol>
+              <div class="flow-branches"><h5>Decisions &amp; recovery</h5><ul class="pretty-list"><li><strong>No results:</strong> return to Search with the same inputs; widen the area or change dates only if the owner chooses.</li><li><strong>Sitter declines or does not respond before expiry:</strong> show Declined or Expired, notify the owner, and offer another search. No payment is taken.</li><li><strong>Availability changes or the payment window expires:</strong> prevent confirmation and return to search; do not silently substitute another sitter or date.</li><li><strong>Payment fails:</strong> show a failed attempt and allow correction while the request remains valid. If the result is unknown, show Payment processing and check that attempt before offering another payment.</li></ul></div>
+              <p class="story-links">Stories: <a href="#us-01">US-01</a>, <a href="#us-02">US-02</a>, <a href="#us-03">US-03</a>, <a href="#us-04">US-04</a>, <a href="#us-05">US-05</a>, <a href="#us-06">US-06</a>, <a href="#us-09">US-09</a></p>
+            </article>
+
+            <article class="use-case" id="uc-02" aria-labelledby="uc-02-title">
+              <header class="use-case-heading"><span class="role-tag">UC-02 / Owner</span><h4 id="uc-02-title">Find care at short notice</h4><p>Goal: establish whether appropriate care can be arranged before the required start time.</p></header>
+              <dl class="use-case-context">
+                <div><dt>Trigger</dt><dd>The usual care arrangement falls through or an unexpected trip arises.</dd></div>
+                <div><dt>Preconditions</dt><dd>The owner knows the location, service, pet needs, and latest acceptable start time.</dd></div>
+                <div><dt>Success</dt><dd>A suitable booking is confirmed, or the owner receives an explicit no-match/expiry outcome rather than assuming care is arranged.</dd></div>
+              </dl>
+              <ol class="flow-steps" aria-label="Urgent-care search flow">
+                <li><span class="flow-screen">Urgent search</span><strong>Specify the deadline</strong><p>Select short-notice care and enter the actual dates and required start time.</p></li>
+                <li><span class="flow-screen">Matching results</span><strong>Check availability</strong><p>Show verified sitters offering the selected service and time. Availability is not yet a booking guarantee.</p></li>
+                <li><span class="flow-screen">Profile &amp; request</span><strong>Request suitable care</strong><p>Review the profile, share care requirements, and send a request using UC-01.</p></li>
+                <li><span class="flow-screen">Booking status</span><strong>Resolve the request</strong><p>If accepted in time, continue to checkout. Otherwise show the decline or expiry and offer another search.</p></li>
+              </ol>
+              <div class="flow-branches"><h5>Decisions &amp; recovery</h5><ul class="pretty-list"><li><strong>No suitable sitter:</strong> show a clear empty state with options to widen the area, adjust the service or dates, or stop searching. Never relax verification automatically.</li><li><strong>The start time passes:</strong> expire the request and prevent payment for that slot. A pending request must not be presented as confirmed care.</li><li><strong>Another sitter is needed:</strong> preserve the pet details, but require the owner to review and submit the new request. Urgency does not bypass sitter acceptance or payment.</li></ul></div>
+              <p class="story-links">Stories: <a href="#us-01">US-01</a>, <a href="#us-06">US-06</a> / Continues through <a href="#uc-01">UC-01</a> for booking and payment</p>
+            </article>
+
+            <article class="use-case" id="uc-03" aria-labelledby="uc-03-title">
+              <header class="use-case-heading"><span class="role-tag lilac">UC-03 / Sitter</span><h4 id="uc-03-title">Become a bookable sitter</h4><p>Goal: publish a verified profile with a clear, current care offer.</p></header>
+              <dl class="use-case-context">
+                <div><dt>Trigger</dt><dd>A potential sitter chooses to offer services.</dd></div>
+                <div><dt>Preconditions</dt><dd>The sitter creates an account and can provide the required profile and verification information.</dd></div>
+                <div><dt>Success</dt><dd>The approved profile is visible for matching services and available dates.</dd></div>
+              </dl>
+              <ol class="flow-steps" aria-label="Sitter onboarding flow">
+                <li><span class="flow-screen">Sitter account</span><strong>Create a profile</strong><p>Add care experience, location, and supported pet types.</p></li>
+                <li><span class="flow-screen">Verification</span><strong>Submit for review</strong><p>Provide the required identity information. Status: Pending verification; not bookable.</p></li>
+                <li><span class="flow-screen">Services &amp; calendar</span><strong>Define the offer</strong><p>Set service types, prices, and availability. Save changes as a draft while review is pending.</p></li>
+                <li><span class="flow-screen">Profile preview</span><strong>Publish when eligible</strong><p>After approval and completion of required fields, review the profile and make it bookable.</p></li>
+              </ol>
+              <div class="flow-branches"><h5>Decisions &amp; recovery</h5><ul class="pretty-list"><li><strong>Verification needs correction:</strong> show the required action and allow resubmission without losing the saved service information.</li><li><strong>Approval is pending or verification fails:</strong> keep the profile unbookable and show its status; do not display a verified badge.</li><li><strong>Availability changes:</strong> update future search results. Editing the calendar does not silently cancel an existing confirmed booking.</li></ul></div>
+              <p class="story-links">Story: <a href="#us-08">US-08</a> / Ready sitters receive requests through <a href="#uc-01">UC-01</a></p>
+            </article>
+
+            <article class="use-case" id="uc-04" aria-labelledby="uc-04-title">
+              <header class="use-case-heading"><span class="role-tag lilac">UC-04 / Owner + sitter</span><h4 id="uc-04-title">Complete care, settle payment, and review</h4><p>Goal: make the service outcome and payment status visible to both parties.</p></header>
+              <dl class="use-case-context">
+                <div><dt>Trigger</dt><dd>A confirmed booking reaches its scheduled start.</dd></div>
+                <div><dt>Preconditions</dt><dd>The booking is paid and not canceled. Both parties can access agreed care details and their conversation.</dd></div>
+                <div><dt>Success</dt><dd>Care is completed, the payout status is recorded, and the owner can review the service or start a new booking.</dd></div>
+              </dl>
+              <ol class="flow-steps" aria-label="Service completion and payout flow">
+                <li><span class="flow-screen">Booking details</span><strong>Prepare for care</strong><p>Review the agreed schedule, routines, special needs, and contact information.</p></li>
+                <li><span class="flow-screen">Active booking</span><strong>Provide the service</strong><p>The sitter follows the instructions and uses the booking conversation for questions and updates.</p></li>
+                <li><span class="flow-screen">Completion review</span><strong>Record the outcome</strong><p>The sitter marks care complete. The owner can confirm completion or report a service issue.</p></li>
+                <li><span class="flow-screen">Payout &amp; history</span><strong>Settle and follow up</strong><p>After completion is resolved, release funds under the agreed policy. Show payout status, enable a review, and offer a new request for repeat care.</p></li>
+              </ol>
+              <div class="flow-branches"><h5>Decisions &amp; recovery</h5><ul class="pretty-list"><li><strong>Cancellation or no-show:</strong> display the booking status and applicable cancellation/refund terms. If the owner still needs care, return to <a href="#uc-02">urgent search</a>; do not imply that replacement care is guaranteed.</li><li><strong>Care concern or service dispute:</strong> provide contact and issue-reporting routes and show Issue under review. Do not mark the service as settled while the issue is unresolved.</li><li><strong>Payout failure:</strong> retain the service record and display the transfer problem and next action, not Paid.</li><li><strong>Owner does not respond:</strong> show Awaiting completion review. The reminder and escalation policy is still to be defined; no automatic release deadline is assumed here.</li><li><strong>Repeat booking:</strong> return to UC-01 and recheck availability and prices for the new dates.</li></ul></div>
+              <p class="story-links">Stories: <a href="#us-03">US-03</a>, <a href="#us-06">US-06</a>, <a href="#us-07">US-07</a>, <a href="#us-09">US-09</a>, <a href="#us-10">US-10</a></p>
+            </article>
+          </div>
+        </div>
+
+        <div class="section-block" id="m4-validation">
+          <div class="block-heading"><div><p class="eyebrow">Next UX iteration</p><h3>What still needs validation</h3></div></div>
+          <div class="two-column">
+            <article class="panel"><h4>Planned usability tasks</h4><p class="small-note">Planned, not completed. No usability results are claimed.</p><ul class="pretty-list"><li>Ask a pet owner to find suitable care for Andreea's next-day trip and explain why they trust the selected sitter.</li><li>Ask the owner to identify the total price and distinguish a pending request from a confirmed booking.</li><li>Introduce an empty result or failed payment and observe whether the owner can recover without help.</li><li>Ask a potential sitter to set availability, evaluate a request, and explain when they expect to receive payment.</li></ul><p class="small-note">Record task completion, time, errors, requests for help, and participants' explanations. Test the prototype with owners and sitters, then revise the flows.</p></article>
+            <article class="panel"><h4>Open design decisions</h4><ul class="pretty-list"><li>Request expiry and payment-window duration, including how long availability is held.</li><li>The identity-verification process and exactly what the badge communicates.</li><li>Cancellation/refund terms, dispute handling, payout timing, and escalation when completion is not confirmed.</li><li>Whether owners can complete the booking flow comfortably on a phone and how much detail they need before trusting a sitter.</li></ul><p class="small-note">These are UX and operational assumptions, not validated policies. The M3 wireframes will need to cover the screens and states documented here.</p></article>
+          </div>
+        </div>
+        <div class="next-chapter"><span class="next-chapter-mark" aria-hidden="true">M5+</span><div><h3>Future milestones</h3><p>Additional deliverables and supporting evidence will be documented on this page.</p></div></div>
+          </div>
+        </details>
       </section>
     </main>
 

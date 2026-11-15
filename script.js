@@ -4,6 +4,7 @@
   const header = document.querySelector(".site-header");
   const progress = document.querySelector(".reading-progress span");
   let scrollScheduled = false;
+  let closedForPrint = null;
 
   function updateReadingPosition() {
     const headerBottom = header.getBoundingClientRect().bottom + 45;
@@ -27,9 +28,55 @@
     window.requestAnimationFrame(updateReadingPosition);
   }
 
+  function openLinkedContent(hash) {
+    let id;
+    try {
+      id = decodeURIComponent(hash.slice(1));
+    } catch {
+      return null;
+    }
+    const target = document.getElementById(id);
+    if (!target) return null;
+    const milestone = target.closest(".milestone-section")?.querySelector(".milestone-disclosure");
+    if (milestone) milestone.open = true;
+    for (let ancestor = target; ancestor; ancestor = ancestor.parentElement) {
+      if (ancestor.tagName === "DETAILS") ancestor.open = true;
+    }
+    scheduleReadingUpdate();
+    return target;
+  }
+
+  function revealHashTarget() {
+    const target = openLinkedContent(window.location.hash);
+    if (target) window.requestAnimationFrame(() => target.scrollIntoView({ block: "start" }));
+  }
+
+  document.addEventListener("click", (event) => {
+    if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
+    const link = event.target.closest('a[href^="#"]');
+    if (link) openLinkedContent(link.hash);
+  });
+  document.addEventListener("toggle", (event) => {
+    if (event.target.matches(".milestone-disclosure") && !event.target.open) {
+      event.target.querySelectorAll("video").forEach(video => video.pause());
+    }
+    scheduleReadingUpdate();
+  }, true);
+  window.addEventListener("hashchange", revealHashTarget);
+  window.addEventListener("beforeprint", () => {
+    if (closedForPrint) return;
+    closedForPrint = [...document.querySelectorAll("details:not([open])")];
+    closedForPrint.forEach(details => { details.open = true; });
+  });
+  window.addEventListener("afterprint", () => {
+    closedForPrint?.forEach(details => { details.open = false; });
+    closedForPrint = null;
+    scheduleReadingUpdate();
+  });
   window.addEventListener("scroll", scheduleReadingUpdate, { passive: true });
   window.addEventListener("resize", scheduleReadingUpdate);
   window.addEventListener("load", scheduleReadingUpdate);
+  revealHashTarget();
   updateReadingPosition();
 
   const dialog = document.querySelector("#evidence-dialog");
