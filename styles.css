@@ -18,6 +18,14 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 120px; }
+main { display: flex; flex-direction: column; }
+main > #overview { order: 1; }
+main > .fiki-note { order: 1.5; }
+main > #milestones { order: 2; }
+main > #m1 { order: 3; }
+main > #m2 { order: 4; }
+main > #m3 { order: 5; }
+main > #m4 { order: 6; }
 body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); font-size: 15px; line-height: 1.75; }
 a { color: inherit; text-underline-offset: 4px; }
 button { font: inherit; cursor: pointer; }
@@ -205,6 +213,18 @@ figcaption { padding: 22px; }
 .evidence-open { display: block; padding-top: 10px; color: var(--rose-dark); font-size: .7rem; text-align: right; }
 .evidence-link:hover .evidence-open { text-decoration: underline; text-underline-offset: 3px; }
 .evidence-tag { display: block; margin-bottom: 9px; color: var(--rose); font-size: .61rem; font-weight: 700; letter-spacing: .075em; text-transform: uppercase; }
+.interview-intro { max-width: 860px; margin-bottom: 25px; color: var(--muted); font-size: .88rem; }
+.interview-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.interview-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+.interview-video { background: #302c33; }
+.interview-video video { display: block; width: 100%; aspect-ratio: 16 / 9; }
+.interview-copy { padding: 22px; }
+.interview-copy h4 { margin-bottom: 10px; font-size: 1.1rem; }
+.interview-profile { margin-bottom: 14px; color: var(--rose-dark); font-size: .7rem; line-height: 1.6; }
+.interview-copy > p:not(.interview-profile) { color: var(--muted); font-size: .78rem; line-height: 1.75; }
+.insight-callout { display: grid; gap: 5px; margin-top: 18px; padding: 13px; border-left: 3px solid var(--rose); background: var(--pink); font-size: .72rem; line-height: 1.6; }
+.insight-callout strong { color: var(--rose-dark); font-size: .65rem; letter-spacing: .08em; text-transform: uppercase; }
+.insight-callout span { color: var(--muted); }
 figcaption h4 { margin-bottom: 9px; font-size: .94rem; }
 figcaption p { color: var(--muted); font-size: .78rem; line-height: 1.8; }
 .finding-highlights { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
@@ -275,6 +295,7 @@ figcaption p { color: var(--muted); font-size: .78rem; line-height: 1.8; }
   .hero { gap: 30px; }
   .hero-actions { gap: 18px; }
   .hero-facts > span { padding-inline: 10px; }
+  .interview-grid { grid-template-columns: 1fr; }
   .team-card { padding: 20px; gap: 17px; }
   .team-photo, .team-photo img { width: 100px; }
   .team-photo img { height: 135px; }
@@ -305,6 +326,7 @@ figcaption p { color: var(--muted); font-size: .78rem; line-height: 1.8; }
   .team-copy a { font-size: .72rem; }
   .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .three-column, .evidence-grid { gap: 12px; }
+  .interview-copy { padding: 20px; }
   .small-card { padding: 20px; }
   .origin-story { grid-template-columns: 125px 1fr; gap: 22px; padding: 28px; }
   .discovery-steps article { padding: 20px; }
